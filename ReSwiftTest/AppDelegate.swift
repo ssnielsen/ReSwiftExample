@@ -10,9 +10,19 @@ import UIKit
 import ReSwift
 import ReSwiftRouter
 
+let loggingMiddleware: Middleware = { dispatch, state in
+    return { next in
+        return { action in
+            dump(action)
+            return next(action)
+        }
+    }
+}
+
 let mainStore = Store<AppState>(
     reducer: AppReducer(),
-    state: nil
+    state: nil,
+    middleware: [loggingMiddleware]
 )
 
 @UIApplicationMain
@@ -21,11 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [CustomersTableViewController()]
-        window?.rootViewController = navigationController
-
         return true
     }
 }

@@ -10,17 +10,14 @@ import UIKit
 import ReSwift
 
 class CustomersTableViewController: UITableViewController, StoreSubscriber {
-    typealias StoreSubscriberStateType = AppState
 
     var customers = [Customer]()
 
+
+    // MARK: UIViewController lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CustomersTableViewController.addCustomer))
-
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(CustomersTableViewController.refresh), for: .valueChanged)
 
         refresh()
     }
@@ -36,6 +33,11 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
 
         mainStore.unsubscribe(self)
     }
+
+
+    // MARK: StoreSubscriber
+
+    typealias StoreSubscriberStateType = AppState
 
     func newState(state: StoreSubscriberStateType) {
         if let addingCustomer = state.addingCustomer {
@@ -87,16 +89,8 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
         }
     }
 
-    @IBAction func refresh() {
-        mainStore.dispatch(fetchCustomersAction)
-    }
 
-    @IBAction func addCustomer() {
-        let timestamp = Date().timeIntervalSince1970
-        let id = String(timestamp).replacingOccurrences(of: ".", with: "")
-        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
-        mainStore.dispatch(addCustomerAction(newCustomer: customer))
-    }
+    // MARK: UITableViewDataSource
 
     let dequeueIdentifier = "CustomerCellIdentifier"
 
@@ -136,5 +130,19 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
         }
 
         return [deleteAction, favouriteAction]
+    }
+
+
+    // MARK: IBActions
+
+    @IBAction func refresh() {
+        mainStore.dispatch(fetchCustomersAction)
+    }
+
+    @IBAction func addCustomer() {
+        let timestamp = Date().timeIntervalSince1970
+        let id = String(timestamp).replacingOccurrences(of: ".", with: "")
+        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
+        mainStore.dispatch(addCustomerAction(newCustomer: customer))
     }
 }
