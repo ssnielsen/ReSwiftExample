@@ -23,7 +23,8 @@ struct AppReducer: Reducer {
             deletingCustomer: deletingCustomer,
             updatingCustomer: updatingCustomer,
             navigationState: NavigationReducer.handleAction(action, state: state?.navigationState),
-            api: state?.api ?? TestApi())
+            api: state?.api ?? TestApi()
+        )
     }
 
     private func companyReducer(action: Action, state: AppState?) -> FetchState<Company>? {

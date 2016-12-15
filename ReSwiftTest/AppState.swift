@@ -19,5 +19,5 @@ struct AppState: StateType {
 
     var navigationState: NavigationState
 
-    var api: Api?
+    var api: ApiService
 }

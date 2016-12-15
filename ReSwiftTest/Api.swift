@@ -9,7 +9,7 @@
 import Foundation
 import ReSwift
 
-protocol Api {
+protocol ApiService {
     func fetchCompany(completion: @escaping (Response<Company>) -> Void)
     func fetchCustomers(completion: @escaping (Response<[Customer]>) -> Void)
     func addCustomer(customer: Customer, completion: @escaping (Response<Customer>) -> Void)
@@ -44,7 +44,7 @@ enum Response<T> {
 
 let testApiConfiguration = ApiConfiguration(endpoint: "htts://testservice.com", apiKey: "ab487c9487f897e8978d987dd")
 
-class TestApi: Api {
+class TestApi: ApiService {
     var customers = [
         Customer(id: "1", name: "Anders Høst", address: "Vejlevej 1", country: "Denmark", regNo: "12334534", email: "anders@hqst.com", phone: "045 45345342", favourited: true),
         Customer(id: "2", name: "Peter Andersson", address: "H.C. Andersens Boulevard 352", country: "Denmark", regNo: "23495234", email: "peter@peters-shop.com", phone: "23544365", favourited: false),
@@ -104,9 +104,7 @@ class TestApi: Api {
 }
 
 func fetchCompanyAction(state: AppState, store: Store<AppState>) -> Action? {
-    guard let api = state.api else { return nil }
-
-    api.fetchCompany { response in
+    state.api.fetchCompany { response in
         DispatchQueue.main.async {
             mainStore.dispatch(SetCompany(company: FetchState(response: response)))
         }
@@ -116,9 +114,7 @@ func fetchCompanyAction(state: AppState, store: Store<AppState>) -> Action? {
 }
 
 func fetchCustomersAction(state: AppState, store: Store<AppState>) -> Action? {
-    guard let api = state.api else { return nil }
-
-    api.fetchCustomers { response in
+    state.api.fetchCustomers { response in
         DispatchQueue.main.async {
             mainStore.dispatch(SetCustomers(customers: FetchState(response: response)))
         }
@@ -129,9 +125,7 @@ func fetchCustomersAction(state: AppState, store: Store<AppState>) -> Action? {
 
 func addCustomerAction(newCustomer: Customer) -> (_ state: AppState, _ store: Store<AppState>) -> Action? {
     return { (state, store) in
-        guard let api = state.api else { return nil }
-
-        api.addCustomer(customer: newCustomer) { response in
+        state.api.addCustomer(customer: newCustomer) { response in
             DispatchQueue.main.async {
                 mainStore.dispatch(AddCustomer(customerToAdd: FetchState(response: response)))
             }
@@ -143,9 +137,7 @@ func addCustomerAction(newCustomer: Customer) -> (_ state: AppState, _ store: St
 
 func deleteCustomerAction(customer: Customer) -> (_ state: AppState, _ store: Store<AppState>) -> Action? {
     return { (state, store) in
-        guard let api = state.api else { return nil }
-
-        api.deleteCustomer(customer: customer) { response in
+        state.api.deleteCustomer(customer: customer) { response in
             DispatchQueue.main.async {
                 mainStore.dispatch(DeleteCustomer(customerToDelete: FetchState(response: response)))
             }
@@ -157,9 +149,7 @@ func deleteCustomerAction(customer: Customer) -> (_ state: AppState, _ store: St
 
 func updateCustomerAction(customer: Customer) -> (_ state: AppState, _ store: Store<AppState>) -> Action? {
     return { (state, store) in
-        guard let api = state.api else { return nil }
-
-        api.updateCustomer(customer: customer) { response in
+        state.api.updateCustomer(customer: customer) { response in
             DispatchQueue.main.async {
                 mainStore.dispatch(UpdateCustomer(customerToUpdate: FetchState(response: response)))
             }
