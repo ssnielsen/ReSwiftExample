@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: ReSwiftTest.xcodeproj # path to your xcodeproj folder
+xcode_scheme: ReSwiftTest
+osx_image: xcode8.2
