@@ -2,3 +2,4 @@ language: objective-c
 xcode_project: ReSwiftTest.xcodeproj # path to your xcodeproj folder
 xcode_scheme: ReSwiftTest
 osx_image: xcode8.2
+script: xctool -project ReSwiftTest.xcodeproj -scheme ReSwiftTest clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
