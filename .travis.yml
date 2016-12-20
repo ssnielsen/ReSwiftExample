@@ -2,4 +2,4 @@ language: objective-c
 xcode_project: ReSwiftTest.xcodeproj # path to your xcodeproj folder
 xcode_scheme: ReSwiftTest
 osx_image: xcode8.2
-script: xcodebuild test -workspace ReSwift.xcworkspace/ -scheme ReSwiftTest destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.2'
+script: xcodebuild clean build test -workspace ReSwiftTest.xcworkspace/ -scheme ReSwiftTest -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.2' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
