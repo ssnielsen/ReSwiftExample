@@ -19,9 +19,13 @@ let loggingMiddleware: Middleware = { dispatch, state in
     }
 }
 
-let mainStore = Store<AppState>(
+let api = ProcessInfo.processInfo.arguments.contains("UI-TESTING") ? TestApi() : TestApi()
+
+let state = AppState(api: api)
+
+var mainStore = Store<AppState>(
     reducer: AppReducer(),
-    state: nil,
+    state: state,
     middleware: [loggingMiddleware]
 )
 
