@@ -33,15 +33,18 @@ class ReSwiftTestUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func test_addCustomerWillAddCustomerToTable() {
+        // Arrange
         let app = XCUIApplication()
-        let cells = app.tables.tableRows.cells.staticTexts["Anders Høst"]
-        let cell = cells.tap()
+        let cells = app.tables.cells
+        let cellCountBefore = cells.count
+        let hasNewCustomer = NSPredicate(format: "count == \(Int(cellCountBefore + 1))")
 
+        // Act
+        XCUIApplication().navigationBars.buttons["Add"].tap()
 
-
-
-
+        // Assert
+        expectation(for: hasNewCustomer, evaluatedWith: cells)
+        waitForExpectations(timeout: 5)
     }
-    
 }
