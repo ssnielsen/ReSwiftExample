@@ -188,8 +188,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 450EBE5E1E01630E00BC0AD5 /* Build configuration list for PBXNativeTarget "ReSwiftTest" */;
 			buildPhases = (
-				45D8675E1E0D43220033C2E3 /* R.swift */,
 				6BBDEFEF91D1E90026A10262 /* [CP] Check Pods Manifest.lock */,
+				45D8675E1E0D43220033C2E3 /* R.swift */,
 				450EBE481E01630E00BC0AD5 /* Sources */,
 				450EBE491E01630E00BC0AD5 /* Frameworks */,
 				450EBE4A1E01630E00BC0AD5 /* Resources */,
