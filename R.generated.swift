@@ -69,12 +69,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
+    /// Storyboard `AddCustomer`.
+    static let addCustomer = _R.storyboard.addCustomer()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    
+    /// `UIStoryboard(name: "AddCustomer", bundle: ...)`
+    static func addCustomer(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addCustomer)
+    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -118,7 +125,25 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try main.validate()
+      try addCustomer.validate()
+    }
+    
+    struct addCustomer: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "AddCustomer"
+      let newCustomerNavigationController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "NewCustomerNavigationController")
+      
+      func newCustomerNavigationController(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newCustomerNavigationController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.addCustomer().newCustomerNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newCustomerNavigationController' could not be loaded from storyboard 'AddCustomer' as 'UIKit.UINavigationController'.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
@@ -130,20 +155,11 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct main: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Main"
-      let newCustomerNavigationController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "NewCustomerNavigationController")
-      
-      func newCustomerNavigationController(_: Void = ()) -> UIKit.UINavigationController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newCustomerNavigationController)
-      }
-      
-      static func validate() throws {
-        if _R.storyboard.main().newCustomerNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newCustomerNavigationController' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
-      }
       
       fileprivate init() {}
     }

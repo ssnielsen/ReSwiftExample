@@ -143,7 +143,7 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
 //        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
 //        mainStore.dispatch(addCustomerAction(newCustomer: customer))
 
-        guard let addCustomerController = R.storyboard.main.newCustomerNavigationController() else {
+        guard let addCustomerController = R.storyboard.addCustomer.instantiateInitialViewController() else {
             return
         }
 
