@@ -188,8 +188,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 450EBE5E1E01630E00BC0AD5 /* Build configuration list for PBXNativeTarget "ReSwiftTest" */;
 			buildPhases = (
+				45D8675E1E0D43220033C2E3 /* R.swift */,
 				6BBDEFEF91D1E90026A10262 /* [CP] Check Pods Manifest.lock */,
-				45D867591E0C04B30033C2E3 /* ShellScript */,
 				450EBE481E01630E00BC0AD5 /* Sources */,
 				450EBE491E01630E00BC0AD5 /* Frameworks */,
 				450EBE4A1E01630E00BC0AD5 /* Resources */,
@@ -333,6 +333,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSwiftTestUITests/Pods-ReSwiftTestUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		45D8675E1E0D43220033C2E3 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
 		};
 		528ED82078BC8624D6387B75 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
