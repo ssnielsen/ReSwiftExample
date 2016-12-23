@@ -72,7 +72,9 @@ class TestApi: ApiService {
         }
     }
 
-    func addCustomer(customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
+    func addCustomer( customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
+        var customer = customer
+        customer.id = UUID().uuidString
         customers.append(customer)
         delay {
             completion(.success(data: customer))

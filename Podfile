@@ -10,4 +10,5 @@ target 'ReSwiftTest' do
   # Pods for ReSwiftTest
   pod 'ReSwift'
   pod 'ReSwiftRouter'
+  pod 'R.swift'
 end

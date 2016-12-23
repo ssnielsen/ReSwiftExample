@@ -18,6 +18,8 @@
 		450EBE681E016C1000BC0AD5 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE671E016C1000BC0AD5 /* Actions.swift */; };
 		450EBE6A1E016CE700BC0AD5 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE691E016CE700BC0AD5 /* Reducers.swift */; };
 		450EBE6C1E016FF800BC0AD5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE6B1E016FF800BC0AD5 /* Api.swift */; };
+		45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675A1E0C05090033C2E3 /* R.generated.swift */; };
+		45D8675D1E0C0AEB0033C2E3 /* NewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */; };
 		45F81B7C1E0837AA004A4127 /* ReSwiftTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */; };
 		831854760EDE501A52570C65 /* Pods_ReSwiftTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ED10EBAB86E9642BE8E460 /* Pods_ReSwiftTest.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		450EBE671E016C1000BC0AD5 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		450EBE691E016CE700BC0AD5 /* Reducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		450EBE6B1E016FF800BC0AD5 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		45D8675A1E0C05090033C2E3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCustomerViewController.swift; sourceTree = "<group>"; };
 		45F81B791E0837AA004A4127 /* ReSwiftTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReSwiftTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwiftTestTests.swift; sourceTree = "<group>"; };
 		45F81B7D1E0837AA004A4127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				450EBE4F1E01630E00BC0AD5 /* AppDelegate.swift */,
 				450EBE651E01678000BC0AD5 /* Routes.swift */,
 				450EBE511E01630E00BC0AD5 /* CustomersTableViewController.swift */,
+				45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */,
 				450EBE631E01653F00BC0AD5 /* AppState.swift */,
 				450EBE611E0163A100BC0AD5 /* Models.swift */,
 				450EBE671E016C1000BC0AD5 /* Actions.swift */,
@@ -108,6 +113,7 @@
 				450EBE561E01630E00BC0AD5 /* Assets.xcassets */,
 				450EBE581E01630E00BC0AD5 /* LaunchScreen.storyboard */,
 				450EBE5B1E01630E00BC0AD5 /* Info.plist */,
+				45D8675A1E0C05090033C2E3 /* R.generated.swift */,
 			);
 			path = ReSwiftTest;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 			buildConfigurationList = 450EBE5E1E01630E00BC0AD5 /* Build configuration list for PBXNativeTarget "ReSwiftTest" */;
 			buildPhases = (
 				6BBDEFEF91D1E90026A10262 /* [CP] Check Pods Manifest.lock */,
+				45D867591E0C04B30033C2E3 /* ShellScript */,
 				450EBE481E01630E00BC0AD5 /* Sources */,
 				450EBE491E01630E00BC0AD5 /* Frameworks */,
 				450EBE4A1E01630E00BC0AD5 /* Resources */,
@@ -241,6 +248,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		45D867591E0C04B30033C2E3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 		6BBDEFEF91D1E90026A10262 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,8 +315,10 @@
 			files = (
 				450EBE621E0163A100BC0AD5 /* Models.swift in Sources */,
 				450EBE521E01630E00BC0AD5 /* CustomersTableViewController.swift in Sources */,
+				45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */,
 				450EBE661E01678000BC0AD5 /* Routes.swift in Sources */,
 				450EBE681E016C1000BC0AD5 /* Actions.swift in Sources */,
+				45D8675D1E0C0AEB0033C2E3 /* NewCustomerViewController.swift in Sources */,
 				450EBE501E01630E00BC0AD5 /* AppDelegate.swift in Sources */,
 				450EBE641E01653F00BC0AD5 /* AppState.swift in Sources */,
 				450EBE6C1E016FF800BC0AD5 /* Api.swift in Sources */,
@@ -515,6 +537,7 @@
 				45F81B821E0837AA004A4127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,10 +10,9 @@ import UIKit
 import ReSwift
 
 class CustomersTableViewController: UITableViewController, StoreSubscriber {
+    private var customers = [Customer]()
 
-    var customers = [Customer]()
-
-
+    
     // MARK: UIViewController lifecycle
 
     override func viewDidLoad() {
@@ -92,10 +91,9 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
 
     // MARK: UITableViewDataSource
 
-    let dequeueIdentifier = "CustomerCellIdentifier"
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: dequeueIdentifier) ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: dequeueIdentifier)
+        let identifier = R.reuseIdentifier.customerTableViewCell.identifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
 
         let customer = customers[indexPath.row]
 
@@ -140,9 +138,15 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
     }
 
     @IBAction func addCustomer() {
-        let timestamp = Date().timeIntervalSince1970
-        let id = String(timestamp).replacingOccurrences(of: ".", with: "")
-        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
-        mainStore.dispatch(addCustomerAction(newCustomer: customer))
+//        let timestamp = Date().timeIntervalSince1970
+//        let id = String(timestamp).replacingOccurrences(of: ".", with: "")
+//        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
+//        mainStore.dispatch(addCustomerAction(newCustomer: customer))
+
+        guard let addCustomerController = R.storyboard.main.newCustomerNavigationController() else {
+            return
+        }
+
+        present(addCustomerController, animated: true)
     }
 }
