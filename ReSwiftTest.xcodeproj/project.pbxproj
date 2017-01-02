@@ -24,6 +24,7 @@
 		4565FF9A1E1A6E0300991E14 /* CustomerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF991E1A6E0300991E14 /* CustomerState.swift */; };
 		4565FFAC1E1A7E0500991E14 /* app.clr in Resources */ = {isa = PBXBuildFile; fileRef = 4565FFAB1E1A7E0500991E14 /* app.clr */; };
 		4565FFAF1E1A930900991E14 /* Customers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4565FFAD1E1A930900991E14 /* Customers.storyboard */; };
+		4565FFB11E1A9C7A00991E14 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */; };
 		45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675A1E0C05090033C2E3 /* R.generated.swift */; };
 		45D8675D1E0C0AEB0033C2E3 /* NewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */; };
 		45F81B7C1E0837AA004A4127 /* ReSwiftTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */; };
@@ -71,6 +72,7 @@
 		4565FF991E1A6E0300991E14 /* CustomerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerState.swift; sourceTree = "<group>"; };
 		4565FFAB1E1A7E0500991E14 /* app.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = app.clr; sourceTree = "<group>"; };
 		4565FFAE1E1A930900991E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Customers.storyboard; sourceTree = "<group>"; };
+		4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerTableViewCell.swift; path = Views/CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		45D8675A1E0C05090033C2E3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCustomerViewController.swift; sourceTree = "<group>"; };
 		45F81B791E0837AA004A4127 /* ReSwiftTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReSwiftTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				4565FF9B1E1A6EF800991E14 /* State */,
 				4565FF9D1E1A6F1E00991E14 /* ViewControllers */,
 				450EBE4F1E01630E00BC0AD5 /* AppDelegate.swift */,
+				4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */,
 				450EBE5B1E01630E00BC0AD5 /* Info.plist */,
 			);
 			path = ReSwiftTest;
@@ -511,6 +514,7 @@
 				4565FF911E1A6D7800991E14 /* CustomerReducer.swift in Sources */,
 				4565FF961E1A6DC700991E14 /* Customer.swift in Sources */,
 				45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */,
+				4565FFB11E1A9C7A00991E14 /* CustomerTableViewCell.swift in Sources */,
 				4565FF9A1E1A6E0300991E14 /* CustomerState.swift in Sources */,
 				450EBE681E016C1000BC0AD5 /* Actions.swift in Sources */,
 				4565FF981E1A6DD700991E14 /* BankInformation.swift in Sources */,

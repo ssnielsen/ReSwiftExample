@@ -41,13 +41,13 @@ class CustomersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = R.reuseIdentifier.customerTableViewCell.identifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CustomerTableViewCell
 
         let customer = customers[indexPath.row]
 
-        cell.textLabel?.text = customer.name ?? "[no name]"
-        cell.detailTextLabel?.text = customer.id
-        cell.accessoryType = customer.favourited ? .checkmark : .none
+        cell.nameLabel.text = customer.name ?? "[no name]"
+        cell.phoneLabel.text = customer.phone
+        cell.addressLabel.text = customer.address
 
         return cell
     }
