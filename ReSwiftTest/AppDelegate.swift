@@ -8,7 +8,6 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
 let loggingMiddleware: Middleware = { dispatch, state in
     return { next in
@@ -23,7 +22,7 @@ let api = ProcessInfo.processInfo.arguments.contains("UI-TESTING") ? TestApi() :
 
 let state = AppState(api: api)
 
-var mainStore = Store<AppState>(
+let mainStore = Store<AppState>(
     reducer: AppReducer(),
     state: state,
     middleware: [loggingMiddleware]

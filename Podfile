@@ -7,7 +7,6 @@ project 'ReSwiftTest.xcodeproj'
 use_frameworks!
 
 pod 'ReSwift'
-pod 'ReSwiftRouter'
 pod 'R.swift'
 
 target 'ReSwiftTest' do

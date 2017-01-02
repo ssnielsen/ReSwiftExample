@@ -8,23 +8,18 @@
 
 import Foundation
 import ReSwift
-import ReSwiftRouter
 
 struct AppState: StateType {
     var company: FetchState<Company>?
     var customerState: CustomerState? = CustomerState()
 
-    var navigationState: NavigationState?
-
     var api: ApiService
 
     init(company: FetchState<Company>? = nil,
          customerState: CustomerState? = nil,
-         navigationState: NavigationState? = nil,
          api: ApiService) {
         self.company = company
         self.customerState = customerState
-        self.navigationState = navigationState
         self.api = api
     }
 }

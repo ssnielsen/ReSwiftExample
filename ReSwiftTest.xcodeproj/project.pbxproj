@@ -14,7 +14,6 @@
 		450EBE5A1E01630E00BC0AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450EBE581E01630E00BC0AD5 /* LaunchScreen.storyboard */; };
 		450EBE621E0163A100BC0AD5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE611E0163A100BC0AD5 /* Models.swift */; };
 		450EBE641E01653F00BC0AD5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE631E01653F00BC0AD5 /* AppState.swift */; };
-		450EBE661E01678000BC0AD5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE651E01678000BC0AD5 /* Routes.swift */; };
 		450EBE681E016C1000BC0AD5 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE671E016C1000BC0AD5 /* Actions.swift */; };
 		450EBE6A1E016CE700BC0AD5 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE691E016CE700BC0AD5 /* Reducers.swift */; };
 		450EBE6C1E016FF800BC0AD5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE6B1E016FF800BC0AD5 /* Api.swift */; };
@@ -56,7 +55,6 @@
 		450EBE5B1E01630E00BC0AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450EBE611E0163A100BC0AD5 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		450EBE631E01653F00BC0AD5 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		450EBE651E01678000BC0AD5 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		450EBE671E016C1000BC0AD5 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		450EBE691E016CE700BC0AD5 /* Reducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		450EBE6B1E016FF800BC0AD5 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				450EBE4F1E01630E00BC0AD5 /* AppDelegate.swift */,
-				450EBE651E01678000BC0AD5 /* Routes.swift */,
 				450EBE511E01630E00BC0AD5 /* CustomersTableViewController.swift */,
 				45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */,
 				450EBE631E01653F00BC0AD5 /* AppState.swift */,
@@ -437,7 +434,6 @@
 				450EBE621E0163A100BC0AD5 /* Models.swift in Sources */,
 				450EBE521E01630E00BC0AD5 /* CustomersTableViewController.swift in Sources */,
 				45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */,
-				450EBE661E01678000BC0AD5 /* Routes.swift in Sources */,
 				450EBE681E016C1000BC0AD5 /* Actions.swift in Sources */,
 				45D8675D1E0C0AEB0033C2E3 /* NewCustomerViewController.swift in Sources */,
 				450EBE501E01630E00BC0AD5 /* AppDelegate.swift in Sources */,

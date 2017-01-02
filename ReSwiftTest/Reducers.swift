@@ -8,7 +8,6 @@
 
 import Foundation
 import ReSwift
-import ReSwiftRouter
 
 struct AppReducer: Reducer {
     typealias ReducerStateType = AppState
@@ -17,7 +16,6 @@ struct AppReducer: Reducer {
         return AppState(
             company: companyReducer(action: action, state: state),
             customerState: customersReducer(action: action, state: state),
-            navigationState: NavigationReducer.handleAction(action, state: state?.navigationState),
             api: state?.api ?? TestApi()
         )
     }
