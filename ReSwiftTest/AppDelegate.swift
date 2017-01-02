@@ -18,7 +18,9 @@ let loggingMiddleware: Middleware = { dispatch, state in
     }
 }
 
-let api = ProcessInfo.processInfo.arguments.contains("UI-TESTING") ? TestApi() : TestApi()
+let isUiTesting = ProcessInfo.processInfo.arguments.contains("UI-TESTING")
+
+let api = isUiTesting ? TestApi() : TestApi()
 
 let state = AppState(api: api)
 
@@ -35,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = R.color.app.main()
+
+        if isUiTesting {
+            UIApplication.shared.keyWindow?.layer.speed = 100
+            UIView.setAnimationsEnabled(false)
+        }
 
         return true
     }

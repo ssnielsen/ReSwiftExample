@@ -33,7 +33,7 @@ class ReSwiftTestUITests: XCTestCase {
         super.tearDown()
     }
     
-    /*func test_addCustomerWillAddCustomerToTable() {
+    func test_addCustomerWillAddCustomerToTable() {
         // Arrange
         let app = XCUIApplication()
         let cells = app.tables.cells
@@ -41,10 +41,39 @@ class ReSwiftTestUITests: XCTestCase {
         let hasNewCustomer = NSPredicate(format: "count == \(Int(cellCountBefore + 1))")
 
         // Act
-        XCUIApplication().navigationBars.buttons["Add"].tap()
+        app.navigationBars.buttons["Add"].tap()
+
+        let nameTextField = app.textFields["Name"]
+        let name = "Søren"
+        nameTextField.tap()
+        nameTextField.typeText(name)
+
+        let addressTextField = app.textFields["Address"]
+        addressTextField.tap()
+        addressTextField.typeText("Main Rd.")
+
+        let countryTextField = app.textFields["Country"]
+        countryTextField.tap()
+        countryTextField.typeText("Denmark")
+
+        let companyRegNoTextField = app.textFields["CVR"]
+        companyRegNoTextField.tap()
+        companyRegNoTextField.typeText("24 46 57 87")
+
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("soren.sonderby.nielsen@visma.com")
+
+        let phoneTextField = app.textFields["Phone"]
+        phoneTextField.tap()
+        phoneTextField.typeText("44 35 99 88")
+
+        app.navigationBars.buttons["Save"].tap()
 
         // Assert
         expectation(for: hasNewCustomer, evaluatedWith: cells)
         waitForExpectations(timeout: 5)
-    }*/
+
+        XCTAssertTrue(app.tables.cells.staticTexts[name].exists)
+    }
 }
