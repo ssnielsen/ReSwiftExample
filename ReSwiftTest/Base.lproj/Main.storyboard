@@ -74,7 +74,7 @@
         <!--NewCustomerNavigationController-->
         <scene sceneID="p5f-XX-csO">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="NewCustomerNavigationController" storyboardName="AddCustomer" referencedIdentifier="NewCustomerNavigationController" id="wfe-BE-e6x" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="AddCustomer" storyboardName="AddCustomer" referencedIdentifier="NewCustomerNavigationController" id="wfe-BE-e6x" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qm6-7r-oZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-330" y="718"/>

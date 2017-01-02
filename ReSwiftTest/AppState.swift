@@ -12,28 +12,27 @@ import ReSwiftRouter
 
 struct AppState: StateType {
     var company: FetchState<Company>?
-    var customers: FetchState<[Customer]>?
-    var addingCustomer:  FetchState<Customer>?
-    var deletingCustomer:  FetchState<Customer>?
-    var updatingCustomer:  FetchState<Customer>?
+    var customerState: CustomerState? = CustomerState()
 
     var navigationState: NavigationState?
 
     var api: ApiService
 
     init(company: FetchState<Company>? = nil,
-         customers: FetchState<[Customer]>? = nil,
-         addingCustomer:  FetchState<Customer>? = nil,
-         deletingCustomer:  FetchState<Customer>? = nil,
-         updatingCustomer:  FetchState<Customer>? = nil,
+         customerState: CustomerState? = nil,
          navigationState: NavigationState? = nil,
          api: ApiService) {
         self.company = company
-        self.customers = customers
-        self.addingCustomer = addingCustomer
-        self.deletingCustomer = deletingCustomer
-        self.updatingCustomer = updatingCustomer
+        self.customerState = customerState
         self.navigationState = navigationState
         self.api = api
     }
+}
+
+
+struct CustomerState {
+    var customers: FetchState<[Customer]>?
+    var addingCustomer:  FetchState<Customer>?
+    var deletingCustomer:  FetchState<Customer>?
+    var updatingCustomer:  FetchState<Customer>?
 }

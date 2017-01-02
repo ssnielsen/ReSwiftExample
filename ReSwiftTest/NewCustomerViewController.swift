@@ -29,7 +29,7 @@ class NewCustomerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        mainStore.subscribe(self)
+        mainStore.subscribe(self) { $0.customerState ?? CustomerState() }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,7 +58,7 @@ class NewCustomerViewController: UIViewController {
 }
 
 extension NewCustomerViewController: StoreSubscriber {
-    typealias StoreSubscriberStateType = AppState
+    typealias StoreSubscriberStateType = CustomerState
 
     func newState(state: StoreSubscriberStateType) {
         guard let newCustomer = state.addingCustomer else {

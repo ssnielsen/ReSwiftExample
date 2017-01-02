@@ -9,7 +9,7 @@
 import Foundation
 import ReSwift
 
-struct SetCustomers: Action {
+struct GetCustomers: Action {
     var customers: FetchState<[Customer]>
 }
 

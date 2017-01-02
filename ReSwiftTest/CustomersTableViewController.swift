@@ -39,43 +39,31 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
 
     func newState(state: StoreSubscriberStateType) {
-        if let addingCustomer = state.addingCustomer {
-            switch addingCustomer {
-            case .loading:
-                title = "Loading add customer"
-            default:
-                title = ""
-            }
-
+        if case .loading? = state.customerState?.addingCustomer {
+            title = "Loading add customer"
             return
+        } else {
+            title = ""
         }
 
-        if let deletingCustomer = state.deletingCustomer {
-            switch deletingCustomer {
-            case .loading:
-                title = "Deleting customer"
-            default:
-                title = ""
-            }
-
+        if case .loading? = state.customerState?.updatingCustomer {
+            title = "Updating customer"
             return
+        } else {
+            title = ""
         }
 
-        if let updatingCustomer = state.updatingCustomer {
-            switch updatingCustomer {
-            case .loading:
-                title = "Updating customer"
-            default:
-                title = ""
-            }
-
+        if case .loading? = state.customerState?.deletingCustomer {
+            title = "Deleting customer"
             return
+        } else {
+            title = ""
         }
 
-        if let customers = state.customers {
+        if let customers = state.customerState?.customers {
             switch customers {
             case .loading:
-                title = "Loading"
+                title = "Refreshing"
             case .done(let customers):
                 title = ""
                 refreshControl?.endRefreshing()
@@ -138,11 +126,6 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
     }
 
     @IBAction func addCustomer() {
-//        let timestamp = Date().timeIntervalSince1970
-//        let id = String(timestamp).replacingOccurrences(of: ".", with: "")
-//        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
-//        mainStore.dispatch(addCustomerAction(newCustomer: customer))
-
         guard let addCustomerController = R.storyboard.addCustomer.instantiateInitialViewController() else {
             return
         }
