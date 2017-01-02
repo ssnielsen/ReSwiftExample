@@ -25,6 +25,8 @@
 		4565FFAC1E1A7E0500991E14 /* app.clr in Resources */ = {isa = PBXBuildFile; fileRef = 4565FFAB1E1A7E0500991E14 /* app.clr */; };
 		4565FFAF1E1A930900991E14 /* Customers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4565FFAD1E1A930900991E14 /* Customers.storyboard */; };
 		4565FFB11E1A9C7A00991E14 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */; };
+		4565FFB31E1AA01800991E14 /* LogoPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4565FFB21E1AA01800991E14 /* LogoPlaceholderView.xib */; };
+		4565FFB51E1AA07900991E14 /* LogoPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FFB41E1AA07900991E14 /* LogoPlaceholderView.swift */; };
 		45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675A1E0C05090033C2E3 /* R.generated.swift */; };
 		45D8675D1E0C0AEB0033C2E3 /* NewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */; };
 		45F81B7C1E0837AA004A4127 /* ReSwiftTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */; };
@@ -73,6 +75,8 @@
 		4565FFAB1E1A7E0500991E14 /* app.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = app.clr; sourceTree = "<group>"; };
 		4565FFAE1E1A930900991E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Customers.storyboard; sourceTree = "<group>"; };
 		4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerTableViewCell.swift; path = Views/CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		4565FFB21E1AA01800991E14 /* LogoPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoPlaceholderView.xib; sourceTree = "<group>"; };
+		4565FFB41E1AA07900991E14 /* LogoPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoPlaceholderView.swift; path = Views/LogoPlaceholderView.swift; sourceTree = "<group>"; };
 		45D8675A1E0C05090033C2E3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCustomerViewController.swift; sourceTree = "<group>"; };
 		45F81B791E0837AA004A4127 /* ReSwiftTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReSwiftTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,8 @@
 				4565FF9D1E1A6F1E00991E14 /* ViewControllers */,
 				450EBE4F1E01630E00BC0AD5 /* AppDelegate.swift */,
 				4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */,
+				4565FFB21E1AA01800991E14 /* LogoPlaceholderView.xib */,
+				4565FFB41E1AA07900991E14 /* LogoPlaceholderView.swift */,
 				450EBE5B1E01630E00BC0AD5 /* Info.plist */,
 			);
 			path = ReSwiftTest;
@@ -376,6 +382,7 @@
 				4565FFAF1E1A930900991E14 /* Customers.storyboard in Resources */,
 				450EBE5A1E01630E00BC0AD5 /* LaunchScreen.storyboard in Resources */,
 				450EBE571E01630E00BC0AD5 /* Assets.xcassets in Resources */,
+				4565FFB31E1AA01800991E14 /* LogoPlaceholderView.xib in Resources */,
 				450EBE551E01630E00BC0AD5 /* Main.storyboard in Resources */,
 				4565FFAC1E1A7E0500991E14 /* app.clr in Resources */,
 			);
@@ -512,6 +519,7 @@
 				450EBE621E0163A100BC0AD5 /* Company.swift in Sources */,
 				450EBE521E01630E00BC0AD5 /* CustomersTableViewController.swift in Sources */,
 				4565FF911E1A6D7800991E14 /* CustomerReducer.swift in Sources */,
+				4565FFB51E1AA07900991E14 /* LogoPlaceholderView.swift in Sources */,
 				4565FF961E1A6DC700991E14 /* Customer.swift in Sources */,
 				45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */,
 				4565FFB11E1A9C7A00991E14 /* CustomerTableViewCell.swift in Sources */,

@@ -10,10 +10,24 @@ import Foundation
 import UIKit
 
 class CustomerTableViewCell: UITableViewCell {
-    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoPlaceholderView: LogoPlaceholderView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
-    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        customInit()
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        customInit()
+    }
+
+    private func customInit() {
+        logoPlaceholderView = R.nib.logoPlaceholderView.firstView(owner: self)
+    }
 }

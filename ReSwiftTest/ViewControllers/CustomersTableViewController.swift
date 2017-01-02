@@ -13,7 +13,8 @@ class CustomersTableViewController: UITableViewController {
     fileprivate var customers = [Customer]()
 
     let defaultTitle = "Customers"
-    
+
+
     // MARK: UIViewController lifecycle
 
     override func viewDidLoad() {
@@ -37,7 +38,16 @@ class CustomersTableViewController: UITableViewController {
     }
 
 
-    // MARK: UITableViewDataSource
+    // MARK: IBActions
+
+    @IBAction func refresh() {
+        mainStore.dispatch(fetchCustomersAction)
+    }
+}
+
+
+// MARK: UITableViewDataSource
+extension CustomersTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = R.reuseIdentifier.customerTableViewCell.identifier
@@ -45,9 +55,11 @@ class CustomersTableViewController: UITableViewController {
 
         let customer = customers[indexPath.row]
 
-        cell.nameLabel.text = customer.name ?? "[no name]"
+        cell.nameLabel.text = customer.name
         cell.phoneLabel.text = customer.phone
         cell.addressLabel.text = customer.address
+        cell.logoPlaceholderView.initialsLabel.text = customer.initials
+
 
         return cell
     }
@@ -74,18 +86,13 @@ class CustomersTableViewController: UITableViewController {
             mainStore.dispatch(updateCustomerAction(customer: customer))
             tableView.isEditing = false
         }
-
+        
         return [deleteAction, favouriteAction]
-    }
-
-
-    // MARK: IBActions
-
-    @IBAction func refresh() {
-        mainStore.dispatch(fetchCustomersAction)
     }
 }
 
+
+// MARK: StoreSubscriber
 extension CustomersTableViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
 
