@@ -95,13 +95,6 @@ extension CustomersTableViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
 
     func newState(state: StoreSubscriberStateType) {
-        if case .loading? = state.customerState?.addingCustomer {
-            title = "Loading add customer"
-            return
-        } else {
-            title = ""
-        }
-
         if case .loading? = state.customerState?.updatingCustomer {
             title = "Updating customer"
             return
@@ -128,6 +121,8 @@ extension CustomersTableViewController: StoreSubscriber {
             case .error(let error):
                 title = ""
                 print(error)
+            case .idle:
+                break
             }
         }
     }

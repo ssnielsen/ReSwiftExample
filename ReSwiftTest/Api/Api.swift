@@ -26,6 +26,7 @@ enum FetchState<T> {
     case loading
     case done(data: T)
     case error(error: Error)
+    case idle
 
     init(response: Response<T>) {
         switch response {
@@ -99,7 +100,7 @@ class TestApi: ApiService {
     }
 
     private func delay(operation: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(500)) {
             operation()
         }
     }

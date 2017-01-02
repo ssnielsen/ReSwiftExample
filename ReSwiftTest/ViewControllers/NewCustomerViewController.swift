@@ -38,6 +38,9 @@ class NewCustomerViewController: UIViewController {
         mainStore.unsubscribe(self)
     }
 
+    deinit {
+        mainStore.dispatch(ResetAddCustomer())
+    }
     
     // MARK: IBActions
 
@@ -70,7 +73,7 @@ extension NewCustomerViewController: StoreSubscriber {
             title = "Saving customer"
         case .done(_):
             dismiss(animated: true)
-        case .error(_):
+        default:
             break
         }
     }

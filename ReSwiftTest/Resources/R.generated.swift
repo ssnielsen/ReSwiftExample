@@ -16,13 +16,37 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 0 color palettes.
+  /// This `R.color` struct is generated, and contains static references to 1 color palettes.
   struct color {
+    /// This `R.color.app` struct is generated, and contains static references to 1 colors.
+    struct app {
+      /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Main
+      static let main = Rswift.ColorResource(name: "Main", red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
+      
+      /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Main
+      /// 
+      /// UIColor(red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
+      static func main(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 0 files.
+  /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
+    /// Resource file `app.clr`.
+    static let appClr = Rswift.FileResource(bundle: R.hostingBundle, name: "app", pathExtension: "clr")
+    
+    /// `bundle.url(forResource: "app", withExtension: "clr")`
+    static func appClr(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.appClr
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     fileprivate init() {}
   }
   

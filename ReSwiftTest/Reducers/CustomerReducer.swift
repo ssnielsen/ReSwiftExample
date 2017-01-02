@@ -16,14 +16,16 @@ extension AppReducer {
         switch action {
         case let action as GetCustomers:
             newState.customers = action.customers
+
         case let action as AddCustomer:
             guard case let .done(newCustomer) = action.customerToAdd, case let .done(customers)? = newState.customers else {
                 newState.addingCustomer = action.customerToAdd
                 return newState
             }
 
-            newState.addingCustomer = nil
+            newState.addingCustomer = action.customerToAdd
             newState.customers = .done(data: customers + [newCustomer])
+
         case let action as UpdateCustomer:
             guard case let .done(updatedCustomer) = action.customerToUpdate, case let .done(customers)? = newState.customers else {
                 newState.updatingCustomer = action.customerToUpdate
@@ -33,6 +35,7 @@ extension AppReducer {
             let withUpdated = customers.filter { $0.id != updatedCustomer.id } + [updatedCustomer]
             newState.updatingCustomer = nil
             newState.customers = .done(data: withUpdated)
+
         case let action as DeleteCustomer:
             guard case let .done(deletedCustomer) = action.customerToDelete, case let .done(customers)? = newState.customers else {
                 newState.deletingCustomer = action.customerToDelete
@@ -42,6 +45,10 @@ extension AppReducer {
             let withoutDeleted = customers.filter { $0.id != deletedCustomer.id }
             newState.deletingCustomer = nil
             newState.customers = .done(data: withoutDeleted)
+
+        case _ as ResetAddCustomer:
+            newState.addingCustomer = nil
+
         default:
             return newState
         }
