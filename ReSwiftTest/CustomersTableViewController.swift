@@ -9,8 +9,8 @@
 import UIKit
 import ReSwift
 
-class CustomersTableViewController: UITableViewController, StoreSubscriber {
-    private var customers = [Customer]()
+class CustomersTableViewController: UITableViewController {
+    fileprivate var customers = [Customer]()
 
     
     // MARK: UIViewController lifecycle
@@ -31,49 +31,6 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
         super.viewWillDisappear(animated)
 
         mainStore.unsubscribe(self)
-    }
-
-
-    // MARK: StoreSubscriber
-
-    typealias StoreSubscriberStateType = AppState
-
-    func newState(state: StoreSubscriberStateType) {
-        if case .loading? = state.customerState?.addingCustomer {
-            title = "Loading add customer"
-            return
-        } else {
-            title = ""
-        }
-
-        if case .loading? = state.customerState?.updatingCustomer {
-            title = "Updating customer"
-            return
-        } else {
-            title = ""
-        }
-
-        if case .loading? = state.customerState?.deletingCustomer {
-            title = "Deleting customer"
-            return
-        } else {
-            title = ""
-        }
-
-        if let customers = state.customerState?.customers {
-            switch customers {
-            case .loading:
-                title = "Refreshing"
-            case .done(let customers):
-                title = ""
-                refreshControl?.endRefreshing()
-                self.customers = customers.sorted { $0.0.id ?? "" < $0.1.id ?? "" }
-                tableView.reloadData()
-            case .error(let error):
-                title = ""
-                print(error)
-            }
-        }
     }
 
 
@@ -131,5 +88,47 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
         }
 
         present(addCustomerController, animated: true)
+    }
+}
+
+extension CustomersTableViewController: StoreSubscriber {
+    typealias StoreSubscriberStateType = AppState
+
+    func newState(state: StoreSubscriberStateType) {
+        if case .loading? = state.customerState?.addingCustomer {
+            title = "Loading add customer"
+            return
+        } else {
+            title = ""
+        }
+
+        if case .loading? = state.customerState?.updatingCustomer {
+            title = "Updating customer"
+            return
+        } else {
+            title = ""
+        }
+
+        if case .loading? = state.customerState?.deletingCustomer {
+            title = "Deleting customer"
+            return
+        } else {
+            title = ""
+        }
+
+        if let customers = state.customerState?.customers {
+            switch customers {
+            case .loading:
+                title = "Refreshing"
+            case .done(let customers):
+                title = ""
+                refreshControl?.endRefreshing()
+                self.customers = customers.sorted { $0.0.id ?? "" < $0.1.id ?? "" }
+                tableView.reloadData()
+            case .error(let error):
+                title = ""
+                print(error)
+            }
+        }
     }
 }

@@ -67,7 +67,7 @@ extension NewCustomerViewController: StoreSubscriber {
 
         switch newCustomer {
         case .loading:
-            title = "Adding Customer"
+            title = "Saving customer"
         case .done(_):
             dismiss(animated: true)
         case .error(_):
