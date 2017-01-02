@@ -12,11 +12,14 @@ import ReSwift
 class CustomersTableViewController: UITableViewController {
     fileprivate var customers = [Customer]()
 
+    let defaultTitle = "Customers"
     
     // MARK: UIViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.title = defaultTitle
 
         refresh()
     }
@@ -42,7 +45,7 @@ class CustomersTableViewController: UITableViewController {
 
         let customer = customers[indexPath.row]
 
-        cell.textLabel?.text = customer.name
+        cell.textLabel?.text = customer.name ?? "[no name]"
         cell.detailTextLabel?.text = customer.id
         cell.accessoryType = customer.favourited ? .checkmark : .none
 
@@ -81,14 +84,6 @@ class CustomersTableViewController: UITableViewController {
     @IBAction func refresh() {
         mainStore.dispatch(fetchCustomersAction)
     }
-
-    @IBAction func addCustomer() {
-        guard let addCustomerController = R.storyboard.addCustomer.instantiateInitialViewController() else {
-            return
-        }
-
-        present(addCustomerController, animated: true)
-    }
 }
 
 extension CustomersTableViewController: StoreSubscriber {
@@ -96,33 +91,31 @@ extension CustomersTableViewController: StoreSubscriber {
 
     func newState(state: StoreSubscriberStateType) {
         if case .loading? = state.customerState?.updatingCustomer {
-            title = "Updating customer"
+            navigationItem.title = "Updating customer"
             return
         } else {
-            title = ""
+            navigationItem.title = defaultTitle
         }
 
         if case .loading? = state.customerState?.deletingCustomer {
-            title = "Deleting customer"
+            navigationItem.title = "Deleting customer"
             return
         } else {
-            title = ""
+            navigationItem.title = defaultTitle
         }
 
         if let customers = state.customerState?.customers {
             switch customers {
             case .loading:
-                title = "Refreshing"
+                navigationItem.title = "Refreshing"
             case .done(let customers):
-                title = ""
+                navigationItem.title = defaultTitle
                 refreshControl?.endRefreshing()
                 self.customers = customers.sorted { $0.0.id ?? "" < $0.1.id ?? "" }
                 tableView.reloadData()
             case .error(let error):
-                title = ""
+                navigationItem.title = defaultTitle
                 print(error)
-            case .idle:
-                break
             }
         }
     }

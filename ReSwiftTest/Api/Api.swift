@@ -26,7 +26,6 @@ enum FetchState<T> {
     case loading
     case done(data: T)
     case error(error: Error)
-    case idle
 
     init(response: Response<T>) {
         switch response {
