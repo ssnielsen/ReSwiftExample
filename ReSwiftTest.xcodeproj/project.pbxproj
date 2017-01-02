@@ -155,7 +155,6 @@
 				4565FF921E1A6D9B00991E14 /* CompanyReducer.swift */,
 				4565FF901E1A6D7800991E14 /* CustomerReducer.swift */,
 			);
-			name = Reducers;
 			path = Reducers;
 			sourceTree = "<group>";
 		};
@@ -166,7 +165,6 @@
 				450EBE611E0163A100BC0AD5 /* Company.swift */,
 				4565FF951E1A6DC700991E14 /* Customer.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -176,7 +174,6 @@
 				450EBE631E01653F00BC0AD5 /* AppState.swift */,
 				4565FF991E1A6E0300991E14 /* CustomerState.swift */,
 			);
-			name = State;
 			path = State;
 			sourceTree = "<group>";
 		};
@@ -185,7 +182,6 @@
 			children = (
 				450EBE671E016C1000BC0AD5 /* Actions.swift */,
 			);
-			name = Actions;
 			path = Actions;
 			sourceTree = "<group>";
 		};
@@ -195,7 +191,6 @@
 				450EBE511E01630E00BC0AD5 /* CustomersTableViewController.swift */,
 				45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */,
 			);
-			name = ViewControllers;
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -204,7 +199,6 @@
 			children = (
 				450EBE6B1E016FF800BC0AD5 /* Api.swift */,
 			);
-			name = Api;
 			path = Api;
 			sourceTree = "<group>";
 		};
@@ -217,7 +211,6 @@
 				450EBE531E01630E00BC0AD5 /* Main.storyboard */,
 				45D8675A1E0C05090033C2E3 /* R.generated.swift */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -425,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/ReSwiftTest/Resources\"";
 		};
 		528ED82078BC8624D6387B75 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
