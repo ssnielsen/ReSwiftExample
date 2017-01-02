@@ -33,7 +33,7 @@ class ReSwiftTestUITests: XCTestCase {
         super.tearDown()
     }
     
-    func test_addCustomerWillAddCustomerToTable() {
+    /*func test_addCustomerWillAddCustomerToTable() {
         // Arrange
         let app = XCUIApplication()
         let cells = app.tables.cells
@@ -46,5 +46,5 @@ class ReSwiftTestUITests: XCTestCase {
         // Assert
         expectation(for: hasNewCustomer, evaluatedWith: cells)
         waitForExpectations(timeout: 5)
-    }
+    }*/
 }
