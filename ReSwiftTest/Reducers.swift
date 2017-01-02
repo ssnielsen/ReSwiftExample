@@ -66,47 +66,5 @@ struct AppReducer: Reducer {
         }
 
         return newState
-
-
-
-
-
-
-
-        /*switch action {
-        case let action as SetCustomers:
-            return (action.customers, state?.addingCustomer, state?.deletingCustomer, state?.updatingCustomer)
-        case let action as AddCustomer:
-            guard
-                case let .done(newCustomer) = action.customerToAdd,
-                case let .done(customers)? = state?.customers
-            else {
-                return (state?.customers, action.customerToAdd, state?.deletingCustomer, state?.updatingCustomer)
-            }
-
-            return (.done(data: customers + [newCustomer]), nil, state?.deletingCustomer, state?.updatingCustomer)
-        case let action as DeleteCustomer:
-            guard
-                case let .done(deletedCustomer) = action.customerToDelete,
-                case let .done(customers)? = state?.customers
-            else {
-                return (state?.customers, state?.addingCustomer, action.customerToDelete, state?.updatingCustomer)
-            }
-
-            let customersWithoutDeleted = customers.filter { $0.id != deletedCustomer.id }
-            return (.done(data: customersWithoutDeleted), state?.addingCustomer, nil, state?.updatingCustomer)
-        case let action as UpdateCustomer:
-            guard
-                case let .done(updatedCustomer) = action.customerToUpdate,
-                case let .done(customers)? = state?.customers
-            else {
-                return (state?.customers, state?.addingCustomer, state?.deletingCustomer, action.customerToUpdate)
-            }
-
-            let updatedCustomers = customers.filter { $0.id != updatedCustomer.id } + [updatedCustomer]
-            return (.done(data: updatedCustomers), state?.addingCustomer, state?.deletingCustomer, nil)
-        default:
-            return (state?.customers, state?.addingCustomer, state?.deletingCustomer, state?.updatingCustomer)
-        }*/
     }
 }
