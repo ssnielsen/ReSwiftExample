@@ -1,16 +1,18 @@
 PODS:
+  - R.swift (3.2.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
   - ReSwift (3.0.0)
-  - ReSwiftRouter (0.5.1):
-    - ReSwift (~> 3.0.0)
 
 DEPENDENCIES:
+  - R.swift
   - ReSwift
-  - ReSwiftRouter
 
 SPEC CHECKSUMS:
+  R.swift: 207a372a2b5977caef440c696a368009460641d1
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
-  ReSwiftRouter: c620138bf94b57c068f789d51c0bd23efc42bf68
 
-PODFILE CHECKSUM: 1ebbd38bc5270161f49292309d4916cc684ffb89
+PODFILE CHECKSUM: 9de250b30ac4ff10eda0b8b170ea6e580eefa294
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.1

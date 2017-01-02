@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Xge-AF-ntu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Xge-AF-ntu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CZd-Ys-9E9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomerTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomerTableViewCell" id="CZd-Ys-9E9">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CZd-Ys-9E9" id="wPf-pW-aTl">
@@ -39,6 +39,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YLK-5K-h9Y">
                             <connections>
                                 <action selector="addCustomer" destination="3iC-9G-LuM" id="F6E-2q-RSR"/>
+                                <segue destination="wfe-BE-e6x" kind="presentation" identifier="AddCustomer" id="3H8-cp-a5p"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -69,6 +70,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF8-RD-SHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1233" y="-38"/>
+        </scene>
+        <!--NewCustomerNavigationController-->
+        <scene sceneID="p5f-XX-csO">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddCustomer" storyboardName="AddCustomer" referencedIdentifier="NewCustomerNavigationController" id="wfe-BE-e6x" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qm6-7r-oZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="718"/>
         </scene>
     </scenes>
 </document>

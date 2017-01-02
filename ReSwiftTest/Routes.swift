@@ -9,12 +9,15 @@
 import Foundation
 import ReSwiftRouter
 
-class Routes: Routable {
+
+class RootRoutable: Routable {
     let window: UIWindow
 
     init(window: UIWindow) {
         self.window = window
     }
 
-    // TODO...
+    func changeRouteSegment(_ from: RouteElementIdentifier, to: RouteElementIdentifier, animated: Bool, completionHandler: @escaping RoutingCompletionHandler) -> Routable {
+        <#code#>
+    }
 }
