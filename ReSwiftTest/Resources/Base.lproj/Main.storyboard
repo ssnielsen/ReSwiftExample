@@ -9,14 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NewCustomerNavigationController-->
-        <scene sceneID="p5f-XX-csO">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddCustomer" storyboardName="AddCustomer" referencedIdentifier="NewCustomerNavigationController" id="wfe-BE-e6x" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qm6-7r-oZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-330" y="718"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Odd-qz-I8p">
             <objects>
