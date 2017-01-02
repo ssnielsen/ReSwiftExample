@@ -26,6 +26,7 @@ enum FetchState<T> {
     case loading
     case done(data: T)
     case error(error: Error)
+    case idle
 
     init(response: Response<T>) {
         switch response {
@@ -72,7 +73,9 @@ class TestApi: ApiService {
         }
     }
 
-    func addCustomer(customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
+    func addCustomer( customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
+        var customer = customer
+        customer.id = UUID().uuidString
         customers.append(customer)
         delay {
             completion(.success(data: customer))
@@ -97,7 +100,7 @@ class TestApi: ApiService {
     }
 
     private func delay(operation: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(500)) {
             operation()
         }
     }
@@ -113,17 +116,17 @@ func fetchCompanyAction(state: AppState, store: Store<AppState>) -> Action? {
     return SetCompany(company: .loading)
 }
 
-func fetchCustomersAction(state: AppState, store: Store<AppState>) -> Action? {
+var fetchCustomersAction: Store<AppState>.ActionCreator = { state, store in
     state.api.fetchCustomers { response in
         DispatchQueue.main.async {
-            mainStore.dispatch(SetCustomers(customers: FetchState(response: response)))
+            mainStore.dispatch(GetCustomers(customers: FetchState(response: response)))
         }
     }
 
-    return SetCustomers(customers: .loading)
+    return GetCustomers(customers: .loading)
 }
 
-func addCustomerAction(newCustomer: Customer) -> (_ state: AppState, _ store: Store<AppState>) -> Action? {
+func addCustomerAction(newCustomer: Customer) -> Store<AppState>.ActionCreator {
     return { (state, store) in
         state.api.addCustomer(customer: newCustomer) { response in
             DispatchQueue.main.async {
@@ -135,7 +138,7 @@ func addCustomerAction(newCustomer: Customer) -> (_ state: AppState, _ store: St
     }
 }
 
-func deleteCustomerAction(customer: Customer) -> (_ state: AppState, _ store: Store<AppState>) -> Action? {
+func deleteCustomerAction(customer: Customer) -> Store<AppState>.ActionCreator {
     return { (state, store) in
         state.api.deleteCustomer(customer: customer) { response in
             DispatchQueue.main.async {
@@ -147,7 +150,7 @@ func deleteCustomerAction(customer: Customer) -> (_ state: AppState, _ store: St
     }
 }
 
-func updateCustomerAction(customer: Customer) -> (_ state: AppState, _ store: Store<AppState>) -> Action? {
+func updateCustomerAction(customer: Customer) -> Store<AppState>.ActionCreator {
     return { (state, store) in
         state.api.updateCustomer(customer: customer) { response in
             DispatchQueue.main.async {

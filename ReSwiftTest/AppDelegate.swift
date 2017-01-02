@@ -8,7 +8,6 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
 let loggingMiddleware: Middleware = { dispatch, state in
     return { next in
@@ -19,9 +18,15 @@ let loggingMiddleware: Middleware = { dispatch, state in
     }
 }
 
+let isUiTesting = ProcessInfo.processInfo.arguments.contains("UI-TESTING")
+
+let api = isUiTesting ? TestApi() : TestApi()
+
+let state = AppState(api: api)
+
 let mainStore = Store<AppState>(
     reducer: AppReducer(),
-    state: nil,
+    state: state,
     middleware: [loggingMiddleware]
 )
 
@@ -31,6 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window?.tintColor = R.color.app.main()
+
+        if isUiTesting {
+            UIApplication.shared.keyWindow?.layer.speed = 100
+            UIView.setAnimationsEnabled(false)
+        }
+
         return true
     }
 }

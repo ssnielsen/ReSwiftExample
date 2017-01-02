@@ -17,22 +17,3 @@ struct Company {
     var email: String?
     var phone: String?
 }
-
-struct BankInformation {
-    var name: String?
-    var accountHolder: String?
-    var swiftCode: String?
-    var iban: String?
-    var accountNo: String?
-}
-
-struct Customer {
-    var id: String?
-    var name: String?
-    var address: String?
-    var country: String?
-    var regNo: String?
-    var email: String?
-    var phone: String?
-    var favourited: Bool = false
-}

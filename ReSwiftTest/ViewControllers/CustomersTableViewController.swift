@@ -9,11 +9,10 @@
 import UIKit
 import ReSwift
 
-class CustomersTableViewController: UITableViewController, StoreSubscriber {
+class CustomersTableViewController: UITableViewController {
+    fileprivate var customers = [Customer]()
 
-    var customers = [Customer]()
-
-
+    
     // MARK: UIViewController lifecycle
 
     override func viewDidLoad() {
@@ -35,67 +34,11 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
     }
 
 
-    // MARK: StoreSubscriber
-
-    typealias StoreSubscriberStateType = AppState
-
-    func newState(state: StoreSubscriberStateType) {
-        if let addingCustomer = state.addingCustomer {
-            switch addingCustomer {
-            case .loading:
-                title = "Loading add customer"
-            default:
-                title = ""
-            }
-
-            return
-        }
-
-        if let deletingCustomer = state.deletingCustomer {
-            switch deletingCustomer {
-            case .loading:
-                title = "Deleting customer"
-            default:
-                title = ""
-            }
-
-            return
-        }
-
-        if let updatingCustomer = state.updatingCustomer {
-            switch updatingCustomer {
-            case .loading:
-                title = "Updating customer"
-            default:
-                title = ""
-            }
-
-            return
-        }
-
-        if let customers = state.customers {
-            switch customers {
-            case .loading:
-                title = "Loading"
-            case .done(let customers):
-                title = ""
-                refreshControl?.endRefreshing()
-                self.customers = customers.sorted { $0.0.id ?? "" < $0.1.id ?? "" }
-                tableView.reloadData()
-            case .error(let error):
-                title = ""
-                print(error)
-            }
-        }
-    }
-
-
     // MARK: UITableViewDataSource
 
-    let dequeueIdentifier = "CustomerCellIdentifier"
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: dequeueIdentifier) ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: dequeueIdentifier)
+        let identifier = R.reuseIdentifier.customerTableViewCell.identifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
 
         let customer = customers[indexPath.row]
 
@@ -140,9 +83,47 @@ class CustomersTableViewController: UITableViewController, StoreSubscriber {
     }
 
     @IBAction func addCustomer() {
-        let timestamp = Date().timeIntervalSince1970
-        let id = String(timestamp).replacingOccurrences(of: ".", with: "")
-        let customer = Customer(id: id, name: "New Customer \(id)", address: nil, country: nil, regNo: nil, email: nil, phone: nil, favourited: false)
-        mainStore.dispatch(addCustomerAction(newCustomer: customer))
+        guard let addCustomerController = R.storyboard.addCustomer.instantiateInitialViewController() else {
+            return
+        }
+
+        present(addCustomerController, animated: true)
+    }
+}
+
+extension CustomersTableViewController: StoreSubscriber {
+    typealias StoreSubscriberStateType = AppState
+
+    func newState(state: StoreSubscriberStateType) {
+        if case .loading? = state.customerState?.updatingCustomer {
+            title = "Updating customer"
+            return
+        } else {
+            title = ""
+        }
+
+        if case .loading? = state.customerState?.deletingCustomer {
+            title = "Deleting customer"
+            return
+        } else {
+            title = ""
+        }
+
+        if let customers = state.customerState?.customers {
+            switch customers {
+            case .loading:
+                title = "Refreshing"
+            case .done(let customers):
+                title = ""
+                refreshControl?.endRefreshing()
+                self.customers = customers.sorted { $0.0.id ?? "" < $0.1.id ?? "" }
+                tableView.reloadData()
+            case .error(let error):
+                title = ""
+                print(error)
+            case .idle:
+                break
+            }
+        }
     }
 }

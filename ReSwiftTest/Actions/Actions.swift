@@ -9,7 +9,7 @@
 import Foundation
 import ReSwift
 
-struct SetCustomers: Action {
+struct GetCustomers: Action {
     var customers: FetchState<[Customer]>
 }
 
@@ -20,6 +20,8 @@ struct SetCompany: Action {
 struct AddCustomer: Action {
     var customerToAdd: FetchState<Customer>
 }
+
+struct ResetAddCustomer: Action { }
 
 struct DeleteCustomer: Action {
     var customerToDelete: FetchState<Customer>

@@ -1,0 +1,5 @@
+language: objective-c
+xcode_project: ReSwiftTest.xcodeproj # path to your xcodeproj folder
+xcode_scheme: ReSwiftTest
+osx_image: xcode8.2
+script: xcodebuild clean build test -workspace ReSwiftTest.xcworkspace/ -scheme ReSwiftTest -destination 'id=22FA2149-1241-469C-BF6D-462D3837DB72' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c && exit ${PIPESTATUS[0]}
