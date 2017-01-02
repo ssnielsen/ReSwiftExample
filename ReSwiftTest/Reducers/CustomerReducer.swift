@@ -1,35 +1,16 @@
 //
-//  Reducers.swift
+//  CustomerReducer.swift
 //  ReSwiftTest
 //
-//  Created by Søren Nielsen on 14/12/2016.
-//  Copyright © 2016 e-conomic International A/S. All rights reserved.
+//  Created by Søren Nielsen on 02/01/2017.
+//  Copyright © 2017 e-conomic International A/S. All rights reserved.
 //
 
 import Foundation
 import ReSwift
 
-struct AppReducer: Reducer {
-    typealias ReducerStateType = AppState
-
-    func handleAction(action: Action, state: AppState?) -> AppState {
-        return AppState(
-            company: companyReducer(action: action, state: state),
-            customerState: customersReducer(action: action, state: state),
-            api: state?.api ?? TestApi()
-        )
-    }
-
-    private func companyReducer(action: Action, state: AppState?) -> FetchState<Company>? {
-        switch action {
-        case let action as SetCompany:
-            return action.company
-        default:
-            return nil
-        }
-    }
-
-    private func customersReducer(action: Action, state: AppState?) -> CustomerState? {
+extension AppReducer {
+    func customersReducer(action: Action, state: AppState?) -> CustomerState? {
         var newState = state?.customerState ?? CustomerState()
 
         switch action {
@@ -64,7 +45,7 @@ struct AppReducer: Reducer {
         default:
             return newState
         }
-
+        
         return newState
     }
 }

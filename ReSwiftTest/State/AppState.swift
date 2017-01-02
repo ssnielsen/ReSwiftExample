@@ -23,11 +23,3 @@ struct AppState: StateType {
         self.api = api
     }
 }
-
-
-struct CustomerState {
-    var customers: FetchState<[Customer]>?
-    var addingCustomer:  FetchState<Customer>?
-    var deletingCustomer:  FetchState<Customer>?
-    var updatingCustomer:  FetchState<Customer>?
-}
