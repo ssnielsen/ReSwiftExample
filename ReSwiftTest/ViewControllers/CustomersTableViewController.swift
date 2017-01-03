@@ -57,6 +57,20 @@ class CustomersTableViewController: UITableViewController {
     }
 }
 
+private extension UILabel {
+    func highlight(_ string: String?) {
+        guard let text = text, let string = string?.lowercased() else {
+            return
+        }
+        let att = NSMutableAttributedString(string: text)
+        let r = (text.lowercased() as NSString).range(of: string, range: NSMakeRange(0, text.characters.count))
+        if r.length > 0 {
+            att.addAttribute(NSForegroundColorAttributeName, value: R.color.app.main(), range: r)
+        }
+        attributedText = att
+    }
+}
+
 
 // MARK: UITableViewDataSource
 extension CustomersTableViewController {
@@ -69,6 +83,10 @@ extension CustomersTableViewController {
         cell.phoneLabel.text = customer.phone
         cell.addressLabel.text = customer.address
         cell.initialsLabel.text = customer.initials?.uppercased()
+
+        if searchController.isActive {
+            cell.nameLabel.highlight(searchController.searchBar.text)
+        }
 
         return cell
     }
