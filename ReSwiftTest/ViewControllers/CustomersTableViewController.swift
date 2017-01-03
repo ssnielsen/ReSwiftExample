@@ -47,8 +47,10 @@ class CustomersTableViewController: UITableViewController {
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.searchBarStyle = .minimal
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        extendedLayoutIncludesOpaqueBars = true
     }
 
 
