@@ -92,6 +92,14 @@ extension CustomersTableViewController {
             cell.nameLabel.highlight(searchController.searchBar.text)
         }
 
+        if let imageData = customer.image, let image = UIImage(data: imageData) {
+            cell.circleView.image = image
+            cell.initialsLabel.isHidden = true
+        } else {
+            cell.circleView.image = nil
+            cell.initialsLabel.isHidden = false
+        }
+
         return cell
     }
 

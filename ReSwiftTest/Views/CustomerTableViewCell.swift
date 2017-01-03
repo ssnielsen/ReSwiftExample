@@ -11,7 +11,7 @@ import UIKit
 
 class CustomerTableViewCell: UITableViewCell {
     @IBOutlet weak var initialsLabel: UILabel!
-    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!

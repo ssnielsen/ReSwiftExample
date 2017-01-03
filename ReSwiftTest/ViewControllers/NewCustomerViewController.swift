@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 import ReSwift
+import Contacts
+import ContactsUI
 
 class NewCustomerViewController: UIViewController {
     private var customer = Customer()
-    
 
     // MARK: IBOutlets
 
@@ -22,7 +23,7 @@ class NewCustomerViewController: UIViewController {
     @IBOutlet weak var cvrTextFIeld: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
-
+    @IBOutlet weak var logoImageView: UIImageView!
 
     // MARK: UIViewController lifecycle
 
@@ -62,7 +63,41 @@ class NewCustomerViewController: UIViewController {
         customer.email = emailTextField.text
         customer.phone = phoneTextField.text
 
+        if let image = logoImageView.image {
+            customer.image = UIImagePNGRepresentation(image)
+        }
+
         mainStore.dispatch(addCustomerAction(newCustomer: customer))
+    }
+
+    @IBAction func importContact(_ sender: UIButton) {
+        let pickerViewController = CNContactPickerViewController()
+        pickerViewController.delegate = self
+        pickerViewController.displayedPropertyKeys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactMiddleNameKey, CNContactEmailAddressesKey, CNContactPostalAddressesKey, CNContactPhoneNumbersKey, CNContactImageDataAvailableKey, CNContactImageDataKey, CNContactThumbnailImageDataKey]
+        present(pickerViewController, animated: true)
+    }
+
+    @IBAction func findImage(_ sender: UIButton) {
+        guard let name = nameTextField.text else {
+            return
+        }
+
+        findLogo(for: name) { imageData in
+            self.logoImageView.image = UIImage(data: imageData)
+        }
+    }
+
+    private func findLogo(for company: String, completion: @escaping (_ imageData: Data) -> Void) {
+        URLSession(configuration: URLSessionConfiguration.default).dataTask(with: URL(string: "https://logo.clearbit.com/\(company.replacingOccurrences(of: " ", with: "")).dk")!) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+
+            if let data = data {
+                completion(data)
+            }
+        }.resume()
     }
 }
 
@@ -81,6 +116,19 @@ extension NewCustomerViewController: StoreSubscriber {
             dismiss(animated: true)
         default:
             break
+        }
+    }
+}
+
+extension NewCustomerViewController: CNContactPickerDelegate {
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        nameTextField.text = contact.givenName + " " + contact.middleName + " " + contact.familyName
+        addressTextField.text = contact.postalAddresses.first?.value.street
+        phoneTextField.text = contact.phoneNumbers.first?.value.stringValue
+        emailTextField.text = contact.emailAddresses.first?.value as? String
+
+        if contact.imageDataAvailable, let imageData = contact.imageData {
+            logoImageView.image = UIImage(data: imageData)
         }
     }
 }
