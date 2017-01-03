@@ -14,6 +14,8 @@ class CustomersTableViewController: UITableViewController {
 
     let defaultTitle = "Customers"
 
+    let searchController = UISearchController(searchResultsController: nil)
+
 
     // MARK: UIViewController lifecycle
 
@@ -21,7 +23,7 @@ class CustomersTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationItem.title = defaultTitle
-
+        setupSearch()
         refresh()
     }
 
@@ -38,6 +40,16 @@ class CustomersTableViewController: UITableViewController {
     }
 
 
+    // MARK: Private functions
+
+    private func setupSearch() {
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+    }
+
+
     // MARK: IBActions
 
     @IBAction func refresh() {
@@ -48,18 +60,15 @@ class CustomersTableViewController: UITableViewController {
 
 // MARK: UITableViewDataSource
 extension CustomersTableViewController {
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = R.reuseIdentifier.customerTableViewCell.identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CustomerTableViewCell
-
         let customer = customers[indexPath.row]
 
         cell.nameLabel.text = customer.name
         cell.phoneLabel.text = customer.phone
         cell.addressLabel.text = customer.address
         cell.initialsLabel.text = customer.initials?.uppercased()
-
 
         return cell
     }
@@ -111,7 +120,7 @@ extension CustomersTableViewController: StoreSubscriber {
             navigationItem.title = defaultTitle
         }
 
-        if let customers = state.customerState?.customers {
+        if let customers = state.customerState?.filteredCustomers {
             switch customers {
             case .loading:
                 navigationItem.title = "Refreshing"
@@ -124,6 +133,16 @@ extension CustomersTableViewController: StoreSubscriber {
                 navigationItem.title = defaultTitle
                 print(error)
             }
+        }
+    }
+}
+
+
+// MARK: UISearchResultsUpdating
+extension CustomersTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let query = searchController.searchBar.text {
+            mainStore.dispatch(FilterCustomers(query: query))
         }
     }
 }

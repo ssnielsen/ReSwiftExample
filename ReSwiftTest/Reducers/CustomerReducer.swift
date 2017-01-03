@@ -16,7 +16,15 @@ extension AppReducer {
         switch action {
         case let action as GetCustomers:
             newState.customers = action.customers
+            newState.filteredCustomers = action.customers
+        case let action as FilterCustomers:
+            guard case let .done(customers)? = newState.customers, !action.query.isEmpty else {
+                newState.filteredCustomers = newState.customers
+                return newState
+            }
 
+            let filteredCustomers = customers.filter { $0.name?.lowercased().contains(action.query.lowercased()) ?? false }
+            newState.filteredCustomers = .done(data: filteredCustomers)
         case let action as AddCustomer:
             guard case let .done(newCustomer) = action.customerToAdd, case let .done(customers)? = newState.customers else {
                 newState.addingCustomer = action.customerToAdd

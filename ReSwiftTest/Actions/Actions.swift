@@ -13,6 +13,10 @@ struct GetCustomers: Action {
     var customers: FetchState<[Customer]>
 }
 
+struct FilterCustomers: Action {
+    var query: String
+}
+
 struct SetCompany: Action {
     var company: FetchState<Company>
 }
