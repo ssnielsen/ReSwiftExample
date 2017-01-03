@@ -12,7 +12,7 @@ import ReSwift
 
 class NewCustomerViewController: UIViewController {
     private var customer = Customer()
-
+    
 
     // MARK: IBOutlets
 
@@ -25,6 +25,12 @@ class NewCustomerViewController: UIViewController {
 
 
     // MARK: UIViewController lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationController?.navigationBar.barStyle = .black
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

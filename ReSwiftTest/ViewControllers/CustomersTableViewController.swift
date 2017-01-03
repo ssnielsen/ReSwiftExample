@@ -12,15 +12,19 @@ import ReSwift
 class CustomersTableViewController: UITableViewController {
     fileprivate var customers = [Customer]()
 
-    let defaultTitle = "Customers"
-    
+    fileprivate let defaultTitle = "Customers"
+
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+
     // MARK: UIViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = defaultTitle
+        navigationController?.navigationBar.barStyle = .black
 
+        navigationItem.title = defaultTitle
+        setupSearch()
         refresh()
     }
 
@@ -37,17 +41,56 @@ class CustomersTableViewController: UITableViewController {
     }
 
 
-    // MARK: UITableViewDataSource
+    // MARK: Private functions
 
+    private func setupSearch() {
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.searchBarStyle = .minimal
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        extendedLayoutIncludesOpaqueBars = true
+    }
+
+
+    // MARK: IBActions
+
+    @IBAction func refresh() {
+        mainStore.dispatch(fetchCustomersAction)
+    }
+}
+
+private extension UILabel {
+    func highlight(_ string: String?) {
+        guard let text = text, let string = string?.lowercased() else {
+            return
+        }
+        let att = NSMutableAttributedString(string: text)
+        let r = (text.lowercased() as NSString).range(of: string, range: NSMakeRange(0, text.characters.count))
+        if r.length > 0 {
+            att.addAttribute(NSForegroundColorAttributeName, value: R.color.app.main(), range: r)
+        }
+        attributedText = att
+    }
+}
+
+
+// MARK: UITableViewDataSource
+extension CustomersTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = R.reuseIdentifier.customerTableViewCell.identifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CustomerTableViewCell
         let customer = customers[indexPath.row]
 
-        cell.textLabel?.text = customer.name ?? "[no name]"
-        cell.detailTextLabel?.text = customer.id
-        cell.accessoryType = customer.favourited ? .checkmark : .none
+        cell.nameLabel.text = customer.name
+        cell.phoneLabel.text = customer.phone
+        cell.addressLabel.text = customer.address
+        cell.initialsLabel.text = customer.initials?.uppercased()
+
+        if searchController.isActive {
+            cell.nameLabel.highlight(searchController.searchBar.text)
+        }
 
         return cell
     }
@@ -74,18 +117,13 @@ class CustomersTableViewController: UITableViewController {
             mainStore.dispatch(updateCustomerAction(customer: customer))
             tableView.isEditing = false
         }
-
+        
         return [deleteAction, favouriteAction]
-    }
-
-
-    // MARK: IBActions
-
-    @IBAction func refresh() {
-        mainStore.dispatch(fetchCustomersAction)
     }
 }
 
+
+// MARK: StoreSubscriber
 extension CustomersTableViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
 
@@ -104,7 +142,7 @@ extension CustomersTableViewController: StoreSubscriber {
             navigationItem.title = defaultTitle
         }
 
-        if let customers = state.customerState?.customers {
+        if let customers = searchController.isActive ? state.customerState?.filteredCustomers : state.customerState?.customers {
             switch customers {
             case .loading:
                 navigationItem.title = "Refreshing"
@@ -118,5 +156,23 @@ extension CustomersTableViewController: StoreSubscriber {
                 print(error)
             }
         }
+    }
+}
+
+
+// MARK: UISearchResultsUpdating
+extension CustomersTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let query = searchController.searchBar.text {
+            mainStore.dispatch(FilterCustomers(query: query))
+        }
+    }
+}
+
+
+// MARK: UISearchControllerDelegate
+extension CustomersTableViewController: UISearchControllerDelegate {
+    func didDismissSearchController(_ searchController: UISearchController) {
+        mainStore.dispatch(FilterCustomers(query: nil))
     }
 }

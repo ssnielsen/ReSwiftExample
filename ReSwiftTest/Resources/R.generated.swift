@@ -55,8 +55,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 1 images.
   struct image {
+    /// Image `tabbar_customers`.
+    static let tabbar_customers = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar_customers")
+    
+    /// `UIImage(named: "tabbar_customers", bundle: ..., traitCollection: ...)`
+    static func tabbar_customers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbar_customers, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -68,7 +76,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `CustomerTableViewCell`.
-    static let customerTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "CustomerTableViewCell")
+    static let customerTableViewCell: Rswift.ReuseIdentifier<CustomerTableViewCell> = Rswift.ReuseIdentifier(identifier: "CustomerTableViewCell")
     
     fileprivate init() {}
   }
@@ -149,6 +157,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "tabbar_customers") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_customers' is used in storyboard 'Customers', but couldn't be loaded.") }
         if _R.storyboard.customers().newCustomerNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newCustomerNavigationController' could not be loaded from storyboard 'Customers' as 'UIKit.UINavigationController'.") }
       }
       

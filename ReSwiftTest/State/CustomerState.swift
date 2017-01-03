@@ -9,6 +9,8 @@
 import Foundation
 
 struct CustomerState {
+    var query: String?
+    var filteredCustomers: FetchState<[Customer]>?
     var customers: FetchState<[Customer]>?
     var addingCustomer:  FetchState<Customer>?
     var deletingCustomer:  FetchState<Customer>?
