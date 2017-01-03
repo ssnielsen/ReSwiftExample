@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CZd-Ys-9E9" id="wPf-pW-aTl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="S5E-hG-aUK">
@@ -50,11 +50,21 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75u-h5-J8A" customClass="LogoPlaceholderView" customModule="ReSwiftTest" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75u-h5-J8A">
                                             <rect key="frame" x="8" y="8" width="56" height="56"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sm-ZL-xoU">
+                                                    <rect key="frame" x="14.5" y="16" width="28.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.41960784309999999" green="0.17254901959999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="75u-h5-J8A" secondAttribute="height" multiplier="1:1" id="Jpa-Jo-6o9"/>
+                                                <constraint firstItem="9sm-ZL-xoU" firstAttribute="centerY" secondItem="75u-h5-J8A" secondAttribute="centerY" id="Z7r-UY-CrF"/>
+                                                <constraint firstItem="9sm-ZL-xoU" firstAttribute="centerX" secondItem="75u-h5-J8A" secondAttribute="centerX" id="Zr5-7U-K53"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -73,7 +83,8 @@
                                 </accessibility>
                                 <connections>
                                     <outlet property="addressLabel" destination="b52-Qo-f7e" id="8ej-gc-NyY"/>
-                                    <outlet property="logoPlaceholderView" destination="75u-h5-J8A" id="9bl-pr-FC6"/>
+                                    <outlet property="circleView" destination="75u-h5-J8A" id="rEj-Zd-got"/>
+                                    <outlet property="initialsLabel" destination="9sm-ZL-xoU" id="VpF-NT-95C"/>
                                     <outlet property="nameLabel" destination="nMy-ei-L5T" id="tiI-NM-Un9"/>
                                     <outlet property="phoneLabel" destination="nhz-yj-MDw" id="vbm-z0-Kf9"/>
                                 </connections>

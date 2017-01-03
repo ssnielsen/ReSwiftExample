@@ -60,16 +60,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
   struct nib {
-    /// Nib `LogoPlaceholderView`.
-    static let logoPlaceholderView = _R.nib._LogoPlaceholderView()
-    
-    /// `UINib(name: "LogoPlaceholderView", in: bundle)`
-    static func logoPlaceholderView(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.logoPlaceholderView)
-    }
-    
     fileprivate init() {}
   }
   
@@ -137,17 +129,6 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
-    struct _LogoPlaceholderView: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "LogoPlaceholderView"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> LogoPlaceholderView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LogoPlaceholderView
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   

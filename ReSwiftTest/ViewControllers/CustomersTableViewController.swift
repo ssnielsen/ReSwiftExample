@@ -58,7 +58,7 @@ extension CustomersTableViewController {
         cell.nameLabel.text = customer.name
         cell.phoneLabel.text = customer.phone
         cell.addressLabel.text = customer.address
-        cell.logoPlaceholderView.initialsLabel.text = customer.initials
+        cell.initialsLabel.text = customer.initials?.uppercased()
 
 
         return cell

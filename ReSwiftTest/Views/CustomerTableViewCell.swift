@@ -10,24 +10,32 @@ import Foundation
 import UIKit
 
 class CustomerTableViewCell: UITableViewCell {
-    @IBOutlet weak var logoPlaceholderView: LogoPlaceholderView!
+    @IBOutlet weak var initialsLabel: UILabel!
+    @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func layoutSubviews() {
+        super.layoutSubviews()
 
-        customInit()
+        circleView.clipsToBounds = true
+        circleView.layer.cornerRadius = circleView.frame.width / 2
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
 
-        customInit()
+        if selected {
+            circleView.backgroundColor = R.color.app.main()
+        }
     }
 
-    private func customInit() {
-        logoPlaceholderView = R.nib.logoPlaceholderView.firstView(owner: self)
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+
+        if highlighted {
+            circleView.backgroundColor = R.color.app.main()
+        }
     }
 }
