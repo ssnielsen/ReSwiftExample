@@ -17,6 +17,7 @@ struct Customer {
     var email: String?
     var phone: String?
     var favourited: Bool = false
+    var image: Data?
 
     var initials: String? {
         guard let splitted = name?.components(separatedBy: .whitespaces) else {
@@ -25,6 +26,11 @@ struct Customer {
 
         if splitted.count == 1 {
             let firstName = splitted.first!
+
+            if firstName.characters.count < 2 {
+                return nil
+            }
+
             return firstName.substring(to: firstName.index(firstName.startIndex, offsetBy: 2))
         } else if splitted.count >= 2 {
             let firstName = splitted.first!

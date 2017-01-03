@@ -46,9 +46,9 @@ let testApiConfiguration = ApiConfiguration(endpoint: "htts://testservice.com", 
 
 class TestApi: ApiService {
     var customers = [
-        Customer(id: "1", name: "Anders Høst", address: "Vejlevej 1", country: "Denmark", regNo: "12334534", email: "anders@hqst.com", phone: "045 45345342", favourited: true),
-        Customer(id: "2", name: "Peter Andersson", address: "H.C. Andersens Boulevard 352", country: "Denmark", regNo: "23495234", email: "peter@peters-shop.com", phone: "23544365", favourited: false),
-        Customer(id: "3", name: "Sigfried Schweinsteiger", address: "Budapester Straße 432", country: "Germany", regNo: "3534543", email: "info@schweini.com", phone: "3453423", favourited: true)
+        Customer(id: "1", name: "Anders Høst", address: "Vejlevej 1", country: "Denmark", regNo: "12334534", email: "anders@hqst.com", phone: "045 45345342", favourited: true, image: nil),
+        Customer(id: "2", name: "Peter Andersson", address: "H.C. Andersens Boulevard 352", country: "Denmark", regNo: "23495234", email: "peter@peters-shop.com", phone: "23544365", favourited: false, image: nil),
+        Customer(id: "3", name: "Sigfried Schweinsteiger", address: "Budapester Straße 432", country: "Germany", regNo: "3534543", email: "info@schweini.com", phone: "3453423", favourited: true, image: nil)
     ]
 
     func fetchCompany(completion: @escaping (Response<Company>) -> Void) {
