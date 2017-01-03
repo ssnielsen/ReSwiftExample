@@ -36,9 +36,6 @@ class ReSwiftTestUITests: XCTestCase {
     func test_addCustomerWillAddCustomerToTable() {
         // Arrange
         let app = XCUIApplication()
-        let cells = app.tables.cells
-        let cellCountBefore = cells.count
-        let hasNewCustomer = NSPredicate(format: "count == \(Int(cellCountBefore + 1))")
 
         // Act
         app.navigationBars.buttons["Add"].tap()
@@ -73,12 +70,9 @@ class ReSwiftTestUITests: XCTestCase {
         app.navigationBars.buttons["Save"].tap()
 
         // Assert
-        expectation(for: hasNewCustomer, evaluatedWith: cells)
-        waitForExpectations(timeout: 5)
-
-        XCTAssertTrue(app.tables.cells.staticTexts[name].exists)
-        XCTAssertTrue(app.tables.cells.staticTexts[address].exists)
-        XCTAssertTrue(app.tables.cells.staticTexts[phone].exists)
+        waitFor(element: app.tables.cells.staticTexts[name])
+        waitFor(element: app.tables.cells.staticTexts[address])
+        waitFor(element: app.tables.cells.staticTexts[phone])
     }
 
     func test_searchCustomerWillShowCustomers() {
@@ -92,8 +86,21 @@ class ReSwiftTestUITests: XCTestCase {
         app.searchFields["Search"].typeText("Anders Høst")
 
         // Assert
-        XCTAssertTrue(app.tables.cells.staticTexts["Anders Høst"].exists)
-        XCTAssertTrue(app.tables.cells.staticTexts["Vejlevej 1"].exists)
-        XCTAssertTrue(app.tables.cells.staticTexts["045 45345342"].exists)
+        waitFor(element: app.tables.cells.staticTexts["Anders Høst"])
+        waitFor(element: app.tables.cells.staticTexts["Vejlevej 1"])
+        waitFor(element: app.tables.cells.staticTexts["045 45345342"])
+    }
+
+    private func waitFor(element: XCUIElement, timeout: TimeInterval = 5, file: String = #file, line: UInt = #line) {
+        let existsPredicate = NSPredicate(format: "exists == true")
+
+        expectation(for: existsPredicate, evaluatedWith: element)
+
+        waitForExpectations(timeout: timeout) { error in
+            if (error != nil) {
+                let message = "Failed to find \(element) after \(timeout) seconds."
+                self.recordFailure(withDescription: message, inFile: file, atLine: line, expected: true)
+            }
+        }
     }
 }
