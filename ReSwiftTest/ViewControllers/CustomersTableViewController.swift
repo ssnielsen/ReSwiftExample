@@ -21,6 +21,8 @@ class CustomersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.barStyle = .black
+
         navigationItem.title = defaultTitle
         setupSearch()
         refresh()
