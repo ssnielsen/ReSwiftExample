@@ -14,7 +14,7 @@ struct GetCustomers: Action {
 }
 
 struct FilterCustomers: Action {
-    var query: String
+    var query: String?
 }
 
 struct SetCompany: Action {

@@ -12,10 +12,9 @@ import ReSwift
 class CustomersTableViewController: UITableViewController {
     fileprivate var customers = [Customer]()
 
-    let defaultTitle = "Customers"
+    fileprivate let defaultTitle = "Customers"
 
-    let searchController = UISearchController(searchResultsController: nil)
-
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: UIViewController lifecycle
 
@@ -43,6 +42,7 @@ class CustomersTableViewController: UITableViewController {
     // MARK: Private functions
 
     private func setupSearch() {
+        searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -120,7 +120,7 @@ extension CustomersTableViewController: StoreSubscriber {
             navigationItem.title = defaultTitle
         }
 
-        if let customers = state.customerState?.filteredCustomers {
+        if let customers = searchController.isActive ? state.customerState?.filteredCustomers : state.customerState?.customers {
             switch customers {
             case .loading:
                 navigationItem.title = "Refreshing"
@@ -144,5 +144,13 @@ extension CustomersTableViewController: UISearchResultsUpdating {
         if let query = searchController.searchBar.text {
             mainStore.dispatch(FilterCustomers(query: query))
         }
+    }
+}
+
+
+// MARK: UISearchControllerDelegate
+extension CustomersTableViewController: UISearchControllerDelegate {
+    func didDismissSearchController(_ searchController: UISearchController) {
+        mainStore.dispatch(FilterCustomers(query: nil))
     }
 }
