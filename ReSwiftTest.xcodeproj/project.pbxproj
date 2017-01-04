@@ -17,6 +17,7 @@
 		450EBE681E016C1000BC0AD5 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE671E016C1000BC0AD5 /* Actions.swift */; };
 		450EBE6A1E016CE700BC0AD5 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE691E016CE700BC0AD5 /* AppReducer.swift */; };
 		450EBE6C1E016FF800BC0AD5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE6B1E016FF800BC0AD5 /* Api.swift */; };
+		45468C381E1D152800FB67D4 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45468C371E1D152800FB67D4 /* PopoverViewController.swift */; };
 		4565FF911E1A6D7800991E14 /* CustomerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF901E1A6D7800991E14 /* CustomerReducer.swift */; };
 		4565FF931E1A6D9B00991E14 /* CompanyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF921E1A6D9B00991E14 /* CompanyReducer.swift */; };
 		4565FF961E1A6DC700991E14 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF951E1A6DC700991E14 /* Customer.swift */; };
@@ -65,6 +66,7 @@
 		450EBE671E016C1000BC0AD5 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		450EBE691E016CE700BC0AD5 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		450EBE6B1E016FF800BC0AD5 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		45468C371E1D152800FB67D4 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		4565FF901E1A6D7800991E14 /* CustomerReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerReducer.swift; sourceTree = "<group>"; };
 		4565FF921E1A6D9B00991E14 /* CompanyReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyReducer.swift; sourceTree = "<group>"; };
 		4565FF951E1A6DC700991E14 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				450EBE511E01630E00BC0AD5 /* CustomersTableViewController.swift */,
 				45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */,
+				45468C371E1D152800FB67D4 /* PopoverViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45468C381E1D152800FB67D4 /* PopoverViewController.swift in Sources */,
 				450EBE621E0163A100BC0AD5 /* Company.swift in Sources */,
 				450EBE521E01630E00BC0AD5 /* CustomersTableViewController.swift in Sources */,
 				4565FF911E1A6D7800991E14 /* CustomerReducer.swift in Sources */,
