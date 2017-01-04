@@ -18,12 +18,14 @@ struct R: Rswift.Validatable {
   
   /// This `R.color` struct is generated, and contains static references to 1 color palettes.
   struct color {
-    /// This `R.color.app` struct is generated, and contains static references to 2 colors.
+    /// This `R.color.app` struct is generated, and contains static references to 3 colors.
     struct app {
       /// <span style='background-color: #5021B5; color: #AFDE4A; padding: 1px 3px;'>#5021B5</span> Main
       static let main = Rswift.ColorResource(name: "Main", red: 0.3137254902, green: 0.1294117647, blue: 0.7098039216, alpha: 1.0)
       /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Light
       static let light = Rswift.ColorResource(name: "Light", red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
+      /// <span style='background-color: #7658B7; color: #89A748; padding: 1px 3px;'>#7658B7</span> VeryLight
+      static let veryLight = Rswift.ColorResource(name: "VeryLight", red: 0.462745098, green: 0.3450980392, blue: 0.7176470588, alpha: 1.0)
       
       /// <span style='background-color: #5021B5; color: #AFDE4A; padding: 1px 3px;'>#5021B5</span> Main
       /// 
@@ -37,6 +39,13 @@ struct R: Rswift.Validatable {
       /// UIColor(red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
       static func light(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #7658B7; color: #89A748; padding: 1px 3px;'>#7658B7</span> VeryLight
+      /// 
+      /// UIColor(red: 0.462745098, green: 0.3450980392, blue: 0.7176470588, alpha: 1.0)
+      static func veryLight(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.462745098, green: 0.3450980392, blue: 0.7176470588, alpha: 1.0)
       }
       
       fileprivate init() {}

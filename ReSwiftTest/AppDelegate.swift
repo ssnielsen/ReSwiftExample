@@ -38,7 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = R.color.app.main()
-        
+
+        // Remove annyoing 1px line below navigation bar
+        UINavigationBar.appearance().setBackgroundImage(
+            UIImage(),
+            for: .any,
+            barMetrics: .default
+        )
+
+        UINavigationBar.appearance().shadowImage = UIImage()
+
+
         if isUiTesting {
             UIApplication.shared.keyWindow?.layer.speed = 100
             UIView.setAnimationsEnabled(false)
