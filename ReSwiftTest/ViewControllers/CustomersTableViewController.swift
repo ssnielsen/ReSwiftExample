@@ -15,6 +15,7 @@ class CustomersTableViewController: UITableViewController {
     fileprivate let defaultTitle = "Customers"
 
     fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate var refreshControlHolder: UIRefreshControl?
 
     // MARK: UIViewController lifecycle
 
@@ -48,6 +49,7 @@ class CustomersTableViewController: UITableViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.searchBarStyle = .minimal
+        searchController.searchBar.backgroundColor = .white
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         extendedLayoutIncludesOpaqueBars = true
@@ -194,6 +196,12 @@ extension CustomersTableViewController: UISearchResultsUpdating {
 extension CustomersTableViewController: UISearchControllerDelegate {
     func didDismissSearchController(_ searchController: UISearchController) {
         mainStore.dispatch(FilterCustomers(query: nil))
+        tableView.refreshControl = refreshControlHolder
+    }
+
+    func willPresentSearchController(_ searchController: UISearchController) {
+        refreshControlHolder = tableView.refreshControl
+        tableView.refreshControl = nil
     }
 }
 
