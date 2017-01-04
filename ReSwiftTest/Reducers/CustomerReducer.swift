@@ -48,6 +48,9 @@ extension AppReducer {
         case _ as ResetAddCustomer:
             newState.addingCustomer = nil
 
+        case let action as ChangeCustomerSorting:
+            newState.sorting = action.sorting
+
         default:
             break
         }
@@ -63,6 +66,29 @@ extension AppReducer {
             newState.filteredCustomers = newState.customers
         }
 
+        if case let .done(customers)? = newState.filteredCustomers {
+            let sortedCustomers = customers.sorted { c1, c2 in
+                switch newState.sorting {
+                case .name:
+                    return c1.name < c2.name
+                case .id:
+                    return c1.id < c2.id
+                case .phone:
+                    return c1.phone < c2.phone
+                }
+            }
+
+            newState.filteredCustomers = .done(data: sortedCustomers)
+        }
+
         return newState
     }
+}
+
+func < <T: Comparable>(x: T?, y: T?) -> Bool {
+    guard let x = x, let y = y else {
+        return false
+    }
+
+    return x < y
 }

@@ -59,6 +59,19 @@ class CustomersTableViewController: UITableViewController {
     @IBAction func refresh() {
         mainStore.dispatch(fetchCustomersAction)
     }
+
+    @IBAction func changeSorting(_ sender: UIBarButtonItem) {
+        let popoverViewController = PopoverViewController()
+        popoverViewController.options = [
+            (title: "Name", selected: { _ in mainStore.dispatch(ChangeCustomerSorting(sorting: .name))}),
+            (title: "Phone", selected: { _ in mainStore.dispatch(ChangeCustomerSorting(sorting: .phone))}),
+        ]
+        popoverViewController.modalPresentationStyle = .popover
+        popoverViewController.popoverPresentationController?.delegate = self
+        popoverViewController.popoverPresentationController?.barButtonItem = sender
+
+        present(popoverViewController, animated: true)
+    }
 }
 
 private extension UILabel {
@@ -150,14 +163,14 @@ extension CustomersTableViewController: StoreSubscriber {
             navigationItem.title = defaultTitle
         }
 
-        if let customers = searchController.isActive ? state.customerState?.filteredCustomers : state.customerState?.customers {
+        if let customers = state.customerState?.filteredCustomers {
             switch customers {
             case .loading:
                 navigationItem.title = "Refreshing"
             case .done(let customers):
                 navigationItem.title = defaultTitle
                 refreshControl?.endRefreshing()
-                self.customers = customers.sorted { $0.0.id ?? "" < $0.1.id ?? "" }
+                self.customers = customers
                 tableView.reloadData()
             case .error(let error):
                 navigationItem.title = defaultTitle
@@ -182,5 +195,12 @@ extension CustomersTableViewController: UISearchResultsUpdating {
 extension CustomersTableViewController: UISearchControllerDelegate {
     func didDismissSearchController(_ searchController: UISearchController) {
         mainStore.dispatch(FilterCustomers(query: nil))
+    }
+}
+
+
+extension CustomersTableViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

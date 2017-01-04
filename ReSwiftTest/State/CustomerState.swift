@@ -10,6 +10,7 @@ import Foundation
 
 struct CustomerState {
     var query: String?
+    var sorting = CustomerSorting.default
     var filteredCustomers: FetchState<[Customer]>?
     var customers: FetchState<[Customer]>?
     var addingCustomer:  FetchState<Customer>?
