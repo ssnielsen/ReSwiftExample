@@ -9,6 +9,12 @@
 import Foundation
 
 class TestApi: ApiService {
+    var delayDuration: DispatchTimeInterval
+
+    init(delayBy duration: DispatchTimeInterval = .milliseconds(500)) {
+        self.delayDuration = duration
+    }
+
     var customers = [
         Customer(id: "1", name: "Anders Høst", address: "Vejlevej 1", country: "Denmark", regNo: "12334534", email: "anders@hqst.com", phone: "045 45345342", favourited: true, image: nil),
         Customer(id: "2", name: "Peter Andersson", address: "H.C. Andersens Boulevard 352", country: "Denmark", regNo: "23495234", email: "peter@peters-shop.com", phone: "23544365", favourited: false, image: nil),
@@ -66,7 +72,7 @@ class TestApi: ApiService {
     }
 
     private func delay(operation: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(500)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayDuration) {
             operation()
         }
     }

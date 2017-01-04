@@ -23,6 +23,7 @@ class ReSwiftTestUITests: XCTestCase {
 
         // Let the app know that we run UI tests
         application.launchArguments.append("UI-TESTING")
+        application.launchArguments.append("TEST-API")
 
         // Launch it!
         application.launch()
