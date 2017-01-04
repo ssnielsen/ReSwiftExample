@@ -61,7 +61,6 @@ class CustomersTableViewController: UITableViewController {
     }
 
     @IBAction func changeSorting(_ sender: UIBarButtonItem) {
-
         let popoverViewController = PopoverViewController()
         popoverViewController.options = [
             (title: "Name", selected: { _ in mainStore.dispatch(ChangeCustomerSorting(sorting: .name))}),
@@ -71,31 +70,7 @@ class CustomersTableViewController: UITableViewController {
         popoverViewController.popoverPresentationController?.delegate = self
         popoverViewController.popoverPresentationController?.barButtonItem = sender
 
-
-//        let sourceView: UIView? = navigationController?.navigationBar.subviews.reduce(nil) { (current, view) in
-//            if let button = view as? UIButton {
-//                dump(button)
-//                if button.tag == 999 {
-//                    return button
-//                }
-//            }
-//            return current
-//        }
-//        if let frame = sourceView?.frame {
-//            popoverViewController.popoverPresentationController?.sourceRect = frame
-//        }
         present(popoverViewController, animated: true)
-
-        /*if let sorting = mainStore.state.customerState?.sorting {
-            switch sorting {
-            case .name:
-                mainStore.dispatch(ChangeCustomerSorting(sorting: .phone))
-            case .phone:
-                mainStore.dispatch(ChangeCustomerSorting(sorting: .name))
-            case .id:
-                mainStore.dispatch(ChangeCustomerSorting(sorting: .name))
-            }
-        }*/
     }
 }
 
