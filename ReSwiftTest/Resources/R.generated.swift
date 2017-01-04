@@ -18,15 +18,24 @@ struct R: Rswift.Validatable {
   
   /// This `R.color` struct is generated, and contains static references to 1 color palettes.
   struct color {
-    /// This `R.color.app` struct is generated, and contains static references to 1 colors.
+    /// This `R.color.app` struct is generated, and contains static references to 2 colors.
     struct app {
-      /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Main
-      static let main = Rswift.ColorResource(name: "Main", red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
+      /// <span style='background-color: #5021B5; color: #AFDE4A; padding: 1px 3px;'>#5021B5</span> Main
+      static let main = Rswift.ColorResource(name: "Main", red: 0.3137254902, green: 0.1294117647, blue: 0.7098039216, alpha: 1.0)
+      /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Light
+      static let light = Rswift.ColorResource(name: "Light", red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
       
-      /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Main
+      /// <span style='background-color: #5021B5; color: #AFDE4A; padding: 1px 3px;'>#5021B5</span> Main
+      /// 
+      /// UIColor(red: 0.3137254902, green: 0.1294117647, blue: 0.7098039216, alpha: 1.0)
+      static func main(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.3137254902, green: 0.1294117647, blue: 0.7098039216, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #6B2CF3; color: #94D30C; padding: 1px 3px;'>#6B2CF3</span> Light
       /// 
       /// UIColor(red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
-      static func main(_: Void = ()) -> UIKit.UIColor {
+      static func light(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.4196078431, green: 0.1725490196, blue: 0.9529411765, alpha: 1.0)
       }
       

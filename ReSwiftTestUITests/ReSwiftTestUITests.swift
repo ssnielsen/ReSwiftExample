@@ -91,6 +91,25 @@ class ReSwiftTestUITests: XCTestCase {
         waitFor(element: app.tables.cells.staticTexts["045 45345342"])
     }
 
+    func test_sortingCustomersWillSortCustomersBySelectedSortKey() {
+        // Arrange
+        let app = XCUIApplication()
+
+        // Act
+        app.navigationBars["Customers"].children(matching: .button).element(boundBy: 0).tap()
+        app.tables.staticTexts["Name"].tap()
+
+        // Assert
+        XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellNameLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <))
+
+        // Act
+        app.navigationBars["Customers"].children(matching: .button).element(boundBy: 0).tap()
+        app.tables.staticTexts["Phone"].tap()
+
+        // Assert
+        XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellPhoneLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <))
+    }
+
     private func waitFor(element: XCUIElement, timeout: TimeInterval = 5, file: String = #file, line: UInt = #line) {
         let existsPredicate = NSPredicate(format: "exists == true")
 
@@ -102,5 +121,16 @@ class ReSwiftTestUITests: XCTestCase {
                 self.recordFailure(withDescription: message, inFile: file, atLine: line, expected: true)
             }
         }
+    }
+}
+
+extension Array {
+    func isSorted(by isOrderedBefore: (Element, Element) -> Bool) -> Bool {
+        for i in 1..<self.count {
+            if !isOrderedBefore(self[i-1], self[i]) {
+                return false
+            }
+        }
+        return true
     }
 }
