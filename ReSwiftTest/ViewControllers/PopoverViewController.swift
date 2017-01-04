@@ -15,10 +15,15 @@ class PopoverViewController: UITableViewController {
 
     var options = [Option]()
 
+    override var modalPresentationStyle: UIModalPresentationStyle {
+        get { return .popover }
+        set { }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.preferredContentSize = tableView.rect(forSection: 0).size
+        preferredContentSize = tableView.rect(forSection: 0).size
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

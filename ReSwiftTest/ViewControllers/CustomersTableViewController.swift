@@ -66,7 +66,6 @@ class CustomersTableViewController: UITableViewController {
             (title: "Name", selected: { _ in mainStore.dispatch(ChangeCustomerSorting(sorting: .name))}),
             (title: "Phone", selected: { _ in mainStore.dispatch(ChangeCustomerSorting(sorting: .phone))}),
         ]
-        popoverViewController.modalPresentationStyle = .popover
         popoverViewController.popoverPresentationController?.delegate = self
         popoverViewController.popoverPresentationController?.barButtonItem = sender
 
