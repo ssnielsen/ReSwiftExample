@@ -12,8 +12,15 @@ import ReSwift
 import Contacts
 import ContactsUI
 
+enum NewCustomerViewControllerState {
+    case fromApp, fromExtension
+}
+
 class NewCustomerViewController: UIViewController {
     private var customer = Customer()
+
+    var state: NewCustomerViewControllerState = .fromApp
+    var contact: CNContact?
 
     // MARK: IBOutlets
 
@@ -30,11 +37,12 @@ class NewCustomerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.barStyle = .black
-
-        for item in self.extensionContext?.inputItems as! [NSExtensionItem] {
-            dump(item)
+        if state == .fromExtension, let contact = contact {
+            select(contact: contact)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(NewCustomerViewController.cancel(_:)))
         }
+
+        navigationController?.navigationBar.barStyle = .black
     }
 
     override func viewWillAppear(_ animated: Bool) {

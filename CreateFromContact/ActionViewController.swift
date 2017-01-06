@@ -30,12 +30,6 @@ class ActionViewController: UIViewController {
                         do {
                             if let contact = try CNContactVCardSerialization.contacts(with: vCardData as! Data).first {
                                 self.performSegue(withIdentifier: "newCustomerFromExtension", sender: contact)
-                                /*if let navController = R.storyboard.addCustomer().instantiateInitialViewController() as? UINavigationController {
-                                    if let addCustomerController = navController.viewControllers.first as? NewCustomerViewController {
-                                        addCustomerController.select(contact: contact)
-                                        self.present(navController, animated: true)
-                                    }
-                                }*/
                             }
 
                         } catch {
@@ -58,8 +52,9 @@ class ActionViewController: UIViewController {
         if segue.identifier == "newCustomerFromExtension" {
             if let navController = segue.destination as? UINavigationController {
                 if let addCustomerController = navController.viewControllers.first as? NewCustomerViewController {
-                    addCustomerController.select(contact: sender as! CNContact)
-                    self.present(navController, animated: true)
+                    addCustomerController.contact = sender as! CNContact
+                    addCustomerController.state = .fromExtension
+                    dismiss(animated: false)
                 }
             }
         }
