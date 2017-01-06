@@ -19,6 +19,26 @@
 		450EBE6C1E016FF800BC0AD5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE6B1E016FF800BC0AD5 /* Api.swift */; };
 		45468C381E1D152800FB67D4 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45468C371E1D152800FB67D4 /* PopoverViewController.swift */; };
 		45468C3A1E1D302B00FB67D4 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45468C391E1D302B00FB67D4 /* TestApi.swift */; };
+		45468C681E1FC8DA00FB67D4 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45468C671E1FC8DA00FB67D4 /* ActionViewController.swift */; };
+		45468C6B1E1FC8DA00FB67D4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45468C691E1FC8DA00FB67D4 /* MainInterface.storyboard */; };
+		45468C6F1E1FC8DA00FB67D4 /* CreateFromContact.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45468C651E1FC8DA00FB67D4 /* CreateFromContact.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		45468C761E1FC91500FB67D4 /* AddCustomer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45468C741E1FC91500FB67D4 /* AddCustomer.storyboard */; };
+		45468C771E1FC92300FB67D4 /* AddCustomer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45468C741E1FC91500FB67D4 /* AddCustomer.storyboard */; };
+		45468C781E1FC92A00FB67D4 /* NewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */; };
+		45468C791E1FCA0A00FB67D4 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE671E016C1000BC0AD5 /* Actions.swift */; };
+		45468C7A1E1FCA1000FB67D4 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF951E1A6DC700991E14 /* Customer.swift */; };
+		45468C7B1E1FCA1E00FB67D4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE6B1E016FF800BC0AD5 /* Api.swift */; };
+		45468C7C1E1FCA2300FB67D4 /* CustomerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF991E1A6E0300991E14 /* CustomerState.swift */; };
+		45468C7D1E1FCA2F00FB67D4 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE611E0163A100BC0AD5 /* Company.swift */; };
+		45468C7E1E1FCA3300FB67D4 /* BankInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF971E1A6DD700991E14 /* BankInformation.swift */; };
+		45468C7F1E1FCA3900FB67D4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE631E01653F00BC0AD5 /* AppState.swift */; };
+		45468C811E1FCA4B00FB67D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE4F1E01630E00BC0AD5 /* AppDelegate.swift */; };
+		45468C821E1FCA5F00FB67D4 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45468C391E1D302B00FB67D4 /* TestApi.swift */; };
+		45468C831E1FCA7000FB67D4 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450EBE691E016CE700BC0AD5 /* AppReducer.swift */; };
+		45468C841E1FCA7300FB67D4 /* CompanyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF921E1A6D9B00991E14 /* CompanyReducer.swift */; };
+		45468C851E1FCA7600FB67D4 /* CustomerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF901E1A6D7800991E14 /* CustomerReducer.swift */; };
+		45468C861E1FCA7D00FB67D4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675A1E0C05090033C2E3 /* R.generated.swift */; };
+		45468C871E1FCA8300FB67D4 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FFB01E1A9C7A00991E14 /* CustomerTableViewCell.swift */; };
 		4565FF911E1A6D7800991E14 /* CustomerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF901E1A6D7800991E14 /* CustomerReducer.swift */; };
 		4565FF931E1A6D9B00991E14 /* CompanyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF921E1A6D9B00991E14 /* CompanyReducer.swift */; };
 		4565FF961E1A6DC700991E14 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565FF951E1A6DC700991E14 /* Customer.swift */; };
@@ -32,10 +52,18 @@
 		45F81B7C1E0837AA004A4127 /* ReSwiftTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */; };
 		45F81B8A1E098A24004A4127 /* ReSwiftTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B891E098A24004A4127 /* ReSwiftTestUITests.swift */; };
 		831854760EDE501A52570C65 /* Pods_ReSwiftTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ED10EBAB86E9642BE8E460 /* Pods_ReSwiftTest.framework */; };
+		CACBF614AA6C1865C8BE7C95 /* Pods_CreateFromContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5E82EBAD7DE38DDEEB420C /* Pods_CreateFromContact.framework */; };
 		DE6D906C2CB8DD5B0B39A91E /* Pods_ReSwiftTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB8AB92E66F8DAB876F912C /* Pods_ReSwiftTestUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		45468C6D1E1FC8DA00FB67D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 450EBE441E01630E00BC0AD5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45468C641E1FC8DA00FB67D4;
+			remoteInfo = CreateFromContact;
+		};
 		45F81B7E1E0837AA004A4127 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 450EBE441E01630E00BC0AD5 /* Project object */;
@@ -52,7 +80,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		45468C731E1FC8DA00FB67D4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				45468C6F1E1FC8DA00FB67D4 /* CreateFromContact.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0922853B9F4F32B82FFB3733 /* Pods-CreateFromContact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreateFromContact.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CreateFromContact/Pods-CreateFromContact.debug.xcconfig"; sourceTree = "<group>"; };
 		09ED10EBAB86E9642BE8E460 /* Pods_ReSwiftTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReSwiftTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B17C2E78F72217FD83A1F8 /* Pods-ReSwiftTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftTest/Pods-ReSwiftTest.debug.xcconfig"; sourceTree = "<group>"; };
 		450EBE4C1E01630E00BC0AD5 /* ReSwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReSwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +112,11 @@
 		450EBE6B1E016FF800BC0AD5 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		45468C371E1D152800FB67D4 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		45468C391E1D302B00FB67D4 /* TestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApi.swift; sourceTree = "<group>"; };
+		45468C651E1FC8DA00FB67D4 /* CreateFromContact.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CreateFromContact.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		45468C671E1FC8DA00FB67D4 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		45468C6A1E1FC8DA00FB67D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		45468C6C1E1FC8DA00FB67D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45468C751E1FC91500FB67D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddCustomer.storyboard; sourceTree = "<group>"; };
 		4565FF901E1A6D7800991E14 /* CustomerReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerReducer.swift; sourceTree = "<group>"; };
 		4565FF921E1A6D9B00991E14 /* CompanyReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyReducer.swift; sourceTree = "<group>"; };
 		4565FF951E1A6DC700991E14 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
@@ -85,7 +133,9 @@
 		45F81B871E098A24004A4127 /* ReSwiftTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReSwiftTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F81B891E098A24004A4127 /* ReSwiftTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwiftTestUITests.swift; sourceTree = "<group>"; };
 		45F81B8B1E098A24004A4127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F315BDEA2199DC883DC015B /* Pods-CreateFromContact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreateFromContact.release.xcconfig"; path = "Pods/Target Support Files/Pods-CreateFromContact/Pods-CreateFromContact.release.xcconfig"; sourceTree = "<group>"; };
 		C0E6878E82EED8FA5A83D4FC /* Pods-ReSwiftTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftTestUITests/Pods-ReSwiftTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DA5E82EBAD7DE38DDEEB420C /* Pods_CreateFromContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreateFromContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB8AB92E66F8DAB876F912C /* Pods_ReSwiftTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReSwiftTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD0A302234765F2DC9CD179 /* Pods-ReSwiftTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftTestUITests/Pods-ReSwiftTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F995A36E84A441F7B9B61E39 /* Pods-ReSwiftTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftTest/Pods-ReSwiftTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +147,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				831854760EDE501A52570C65 /* Pods_ReSwiftTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45468C621E1FC8DA00FB67D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CACBF614AA6C1865C8BE7C95 /* Pods_CreateFromContact.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +179,7 @@
 		450EBE431E01630E00BC0AD5 = {
 			isa = PBXGroup;
 			children = (
+				45468C661E1FC8DA00FB67D4 /* CreateFromContact */,
 				EAA96BBFDAF7E83D33E221E3 /* Frameworks */,
 				6A152FCA675FFE6C9BC9E8BE /* Pods */,
 				450EBE4D1E01630E00BC0AD5 /* Products */,
@@ -136,6 +195,7 @@
 				450EBE4C1E01630E00BC0AD5 /* ReSwiftTest.app */,
 				45F81B791E0837AA004A4127 /* ReSwiftTestTests.xctest */,
 				45F81B871E098A24004A4127 /* ReSwiftTestUITests.xctest */,
+				45468C651E1FC8DA00FB67D4 /* CreateFromContact.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +215,16 @@
 				450EBE5B1E01630E00BC0AD5 /* Info.plist */,
 			);
 			path = ReSwiftTest;
+			sourceTree = "<group>";
+		};
+		45468C661E1FC8DA00FB67D4 /* CreateFromContact */ = {
+			isa = PBXGroup;
+			children = (
+				45468C671E1FC8DA00FB67D4 /* ActionViewController.swift */,
+				45468C691E1FC8DA00FB67D4 /* MainInterface.storyboard */,
+				45468C6C1E1FC8DA00FB67D4 /* Info.plist */,
+			);
+			path = CreateFromContact;
 			sourceTree = "<group>";
 		};
 		4565FF8F1E1A6D5400991E14 /* Reducers */ = {
@@ -220,6 +290,7 @@
 				450EBE581E01630E00BC0AD5 /* LaunchScreen.storyboard */,
 				450EBE531E01630E00BC0AD5 /* Main.storyboard */,
 				4565FFAD1E1A930900991E14 /* Customers.storyboard */,
+				45468C741E1FC91500FB67D4 /* AddCustomer.storyboard */,
 				4565FFAB1E1A7E0500991E14 /* app.clr */,
 				45D8675A1E0C05090033C2E3 /* R.generated.swift */,
 			);
@@ -251,6 +322,8 @@
 				F995A36E84A441F7B9B61E39 /* Pods-ReSwiftTest.release.xcconfig */,
 				EDD0A302234765F2DC9CD179 /* Pods-ReSwiftTestUITests.debug.xcconfig */,
 				C0E6878E82EED8FA5A83D4FC /* Pods-ReSwiftTestUITests.release.xcconfig */,
+				0922853B9F4F32B82FFB3733 /* Pods-CreateFromContact.debug.xcconfig */,
+				6F315BDEA2199DC883DC015B /* Pods-CreateFromContact.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -260,6 +333,7 @@
 			children = (
 				09ED10EBAB86E9642BE8E460 /* Pods_ReSwiftTest.framework */,
 				DAB8AB92E66F8DAB876F912C /* Pods_ReSwiftTestUITests.framework */,
+				DA5E82EBAD7DE38DDEEB420C /* Pods_CreateFromContact.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,15 +352,36 @@
 				450EBE4A1E01630E00BC0AD5 /* Resources */,
 				C1ED954F007A81A940F92F6D /* [CP] Embed Pods Frameworks */,
 				B4C0384FC98FF491FE6F830A /* [CP] Copy Pods Resources */,
+				45468C731E1FC8DA00FB67D4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				45468C6E1E1FC8DA00FB67D4 /* PBXTargetDependency */,
 			);
 			name = ReSwiftTest;
 			productName = ReSwiftTest;
 			productReference = 450EBE4C1E01630E00BC0AD5 /* ReSwiftTest.app */;
 			productType = "com.apple.product-type.application";
+		};
+		45468C641E1FC8DA00FB67D4 /* CreateFromContact */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45468C721E1FC8DA00FB67D4 /* Build configuration list for PBXNativeTarget "CreateFromContact" */;
+			buildPhases = (
+				5EF2CD31002C6AD67A71BFD1 /* [CP] Check Pods Manifest.lock */,
+				45468C611E1FC8DA00FB67D4 /* Sources */,
+				45468C621E1FC8DA00FB67D4 /* Frameworks */,
+				45468C631E1FC8DA00FB67D4 /* Resources */,
+				5285272E10658F9EDAEDF5BE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CreateFromContact;
+			productName = CreateFromContact;
+			productReference = 45468C651E1FC8DA00FB67D4 /* CreateFromContact.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		45F81B781E0837AA004A4127 /* ReSwiftTestTests */ = {
 			isa = PBXNativeTarget;
@@ -342,6 +437,11 @@
 						DevelopmentTeam = 287LWSG6WD;
 						ProvisioningStyle = Automatic;
 					};
+					45468C641E1FC8DA00FB67D4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 287LWSG6WD;
+						ProvisioningStyle = Automatic;
+					};
 					45F81B781E0837AA004A4127 = {
 						CreatedOnToolsVersion = 8.2;
 						ProvisioningStyle = Automatic;
@@ -370,6 +470,7 @@
 				450EBE4B1E01630E00BC0AD5 /* ReSwiftTest */,
 				45F81B781E0837AA004A4127 /* ReSwiftTestTests */,
 				45F81B861E098A24004A4127 /* ReSwiftTestUITests */,
+				45468C641E1FC8DA00FB67D4 /* CreateFromContact */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +484,17 @@
 				450EBE5A1E01630E00BC0AD5 /* LaunchScreen.storyboard in Resources */,
 				450EBE571E01630E00BC0AD5 /* Assets.xcassets in Resources */,
 				450EBE551E01630E00BC0AD5 /* Main.storyboard in Resources */,
+				45468C761E1FC91500FB67D4 /* AddCustomer.storyboard in Resources */,
 				4565FFAC1E1A7E0500991E14 /* app.clr in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45468C631E1FC8DA00FB67D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45468C771E1FC92300FB67D4 /* AddCustomer.storyboard in Resources */,
+				45468C6B1E1FC8DA00FB67D4 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +544,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/ReSwiftTest/Resources\"";
 		};
+		5285272E10658F9EDAEDF5BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CreateFromContact/Pods-CreateFromContact-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		528ED82078BC8624D6387B75 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +572,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSwiftTestUITests/Pods-ReSwiftTestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EF2CD31002C6AD67A71BFD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6BBDEFEF91D1E90026A10262 /* [CP] Check Pods Manifest.lock */ = {
@@ -535,6 +676,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45468C611E1FC8DA00FB67D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45468C851E1FCA7600FB67D4 /* CustomerReducer.swift in Sources */,
+				45468C841E1FCA7300FB67D4 /* CompanyReducer.swift in Sources */,
+				45468C861E1FCA7D00FB67D4 /* R.generated.swift in Sources */,
+				45468C791E1FCA0A00FB67D4 /* Actions.swift in Sources */,
+				45468C681E1FC8DA00FB67D4 /* ActionViewController.swift in Sources */,
+				45468C7E1E1FCA3300FB67D4 /* BankInformation.swift in Sources */,
+				45468C7F1E1FCA3900FB67D4 /* AppState.swift in Sources */,
+				45468C781E1FC92A00FB67D4 /* NewCustomerViewController.swift in Sources */,
+				45468C7C1E1FCA2300FB67D4 /* CustomerState.swift in Sources */,
+				45468C831E1FCA7000FB67D4 /* AppReducer.swift in Sources */,
+				45468C7D1E1FCA2F00FB67D4 /* Company.swift in Sources */,
+				45468C871E1FCA8300FB67D4 /* CustomerTableViewCell.swift in Sources */,
+				45468C821E1FCA5F00FB67D4 /* TestApi.swift in Sources */,
+				45468C7B1E1FCA1E00FB67D4 /* Api.swift in Sources */,
+				45468C811E1FCA4B00FB67D4 /* AppDelegate.swift in Sources */,
+				45468C7A1E1FCA1000FB67D4 /* Customer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45F81B751E0837AA004A4127 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,6 +718,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		45468C6E1E1FC8DA00FB67D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45468C641E1FC8DA00FB67D4 /* CreateFromContact */;
+			targetProxy = 45468C6D1E1FC8DA00FB67D4 /* PBXContainerItemProxy */;
+		};
 		45F81B7F1E0837AA004A4127 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 450EBE4B1E01630E00BC0AD5 /* ReSwiftTest */;
@@ -583,6 +752,22 @@
 			);
 			name = LaunchScreen.storyboard;
 			path = .;
+			sourceTree = "<group>";
+		};
+		45468C691E1FC8DA00FB67D4 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45468C6A1E1FC8DA00FB67D4 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		45468C741E1FC91500FB67D4 /* AddCustomer.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45468C751E1FC91500FB67D4 /* Base */,
+			);
+			name = AddCustomer.storyboard;
 			sourceTree = "<group>";
 		};
 		4565FFAD1E1A930900991E14 /* Customers.storyboard */ = {
@@ -691,6 +876,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 25B17C2E78F72217FD83A1F8 /* Pods-ReSwiftTest.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 287LWSG6WD;
 				INFOPLIST_FILE = ReSwiftTest/Info.plist;
@@ -705,12 +891,41 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F995A36E84A441F7B9B61E39 /* Pods-ReSwiftTest.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 287LWSG6WD;
 				INFOPLIST_FILE = ReSwiftTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.ReSwiftTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		45468C701E1FC8DA00FB67D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0922853B9F4F32B82FFB3733 /* Pods-CreateFromContact.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 287LWSG6WD;
+				INFOPLIST_FILE = CreateFromContact/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.ReSwiftTest.CreateFromContact";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		45468C711E1FC8DA00FB67D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F315BDEA2199DC883DC015B /* Pods-CreateFromContact.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 287LWSG6WD;
+				INFOPLIST_FILE = CreateFromContact/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.ReSwiftTest.CreateFromContact";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -786,6 +1001,15 @@
 			buildConfigurations = (
 				450EBE5F1E01630E00BC0AD5 /* Debug */,
 				450EBE601E01630E00BC0AD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45468C721E1FC8DA00FB67D4 /* Build configuration list for PBXNativeTarget "CreateFromContact" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45468C701E1FC8DA00FB67D4 /* Debug */,
+				45468C711E1FC8DA00FB67D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

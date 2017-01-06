@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         if isUiTesting {
-            UIApplication.shared.keyWindow?.layer.speed = 100
+            //UIApplication.shared.keyWindow?.layer.speed = 100
             UIView.setAnimationsEnabled(false)
         }
 

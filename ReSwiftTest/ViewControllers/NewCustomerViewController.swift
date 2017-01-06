@@ -31,6 +31,10 @@ class NewCustomerViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.barStyle = .black
+
+        for item in self.extensionContext?.inputItems as! [NSExtensionItem] {
+            dump(item)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +103,18 @@ class NewCustomerViewController: UIViewController {
             }
         }.resume()
     }
+
+    func select(contact: CNContact) {
+        nameTextField.text = contact.givenName
+        /*nameTextField.text = contact.givenName + " " + contact.middleName + " " + contact.familyName
+        addressTextField.text = contact.postalAddresses.first?.value.street
+        phoneTextField.text = contact.phoneNumbers.first?.value.stringValue
+        emailTextField.text = contact.emailAddresses.first?.value as? String
+
+        if contact.imageDataAvailable, let imageData = contact.imageData {
+            logoImageView.image = UIImage(data: imageData)
+        }*/
+    }
 }
 
 extension NewCustomerViewController: StoreSubscriber {
@@ -122,13 +138,6 @@ extension NewCustomerViewController: StoreSubscriber {
 
 extension NewCustomerViewController: CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        nameTextField.text = contact.givenName + " " + contact.middleName + " " + contact.familyName
-        addressTextField.text = contact.postalAddresses.first?.value.street
-        phoneTextField.text = contact.phoneNumbers.first?.value.stringValue
-        emailTextField.text = contact.emailAddresses.first?.value as? String
-
-        if contact.imageDataAvailable, let imageData = contact.imageData {
-            logoImageView.image = UIImage(data: imageData)
-        }
+        select(contact: contact)
     }
 }

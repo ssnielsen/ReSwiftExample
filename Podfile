@@ -14,3 +14,6 @@ end
 
 target 'ReSwiftTestUITests' do
 end
+
+target 'CreateFromContact' do
+end

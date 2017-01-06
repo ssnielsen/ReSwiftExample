@@ -111,14 +111,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
+    /// Storyboard `AddCustomer`.
+    static let addCustomer = _R.storyboard.addCustomer()
     /// Storyboard `Customers`.
     static let customers = _R.storyboard.customers()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    
+    /// `UIStoryboard(name: "AddCustomer", bundle: ...)`
+    static func addCustomer(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addCustomer)
+    }
     
     /// `UIStoryboard(name: "Customers", bundle: ...)`
     static func customers(_: Void = ()) -> UIKit.UIStoryboard {
@@ -167,14 +174,15 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try addCustomer.validate()
       try customers.validate()
     }
     
-    struct customers: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct addCustomer: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
-      let name = "Customers"
+      let name = "AddCustomer"
       let newCustomerNavigationController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "NewCustomerNavigationController")
       
       func newCustomerNavigationController(_: Void = ()) -> UIKit.UINavigationController? {
@@ -182,9 +190,21 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if _R.storyboard.addCustomer().newCustomerNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newCustomerNavigationController' could not be loaded from storyboard 'AddCustomer' as 'UIKit.UINavigationController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct customers: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "Customers"
+      
+      static func validate() throws {
         if UIKit.UIImage(named: "barbutton_sort") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'barbutton_sort' is used in storyboard 'Customers', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar_customers") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_customers' is used in storyboard 'Customers', but couldn't be loaded.") }
-        if _R.storyboard.customers().newCustomerNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newCustomerNavigationController' could not be loaded from storyboard 'Customers' as 'UIKit.UINavigationController'.") }
       }
       
       fileprivate init() {}
