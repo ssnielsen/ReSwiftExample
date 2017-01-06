@@ -8,6 +8,7 @@
 
 import UIKit
 import ReSwift
+import Kingfisher
 
 class CustomersTableViewController: UITableViewController {
     fileprivate var customers = [Customer]()
@@ -102,17 +103,22 @@ extension CustomersTableViewController {
         cell.addressLabel.text = customer.address
         cell.initialsLabel.text = customer.initials?.uppercased()
 
+        cell.circleView.backgroundColor = .white
+        cell.initialsLabel.isHidden = true
+        cell.circleView.kf.indicatorType = .activity
+        cell.circleView.kf.setImage(with: URL(string: "https://placeholdit.imgix.net/~text?txtsize=180&txt=\(customer.initials!.uppercased())&w=350&h=350&bg=5021B5&txtclr=ffffff"), options: [.transition(.fade(0.4))])
+
         if searchController.isActive {
             cell.nameLabel.highlight(searchController.searchBar.text)
         }
 
-        if let imageData = customer.image, let image = UIImage(data: imageData) {
-            cell.circleView.image = image
-            cell.initialsLabel.isHidden = true
-        } else {
-            cell.circleView.image = nil
-            cell.initialsLabel.isHidden = false
-        }
+//        if let imageData = customer.image, let image = UIImage(data: imageData) {
+//            cell.circleView.image = image
+//            cell.initialsLabel.isHidden = true
+//        } else {
+//            cell.circleView.image = nil
+//            cell.initialsLabel.isHidden = false
+//        }
 
         return cell
     }
