@@ -12,8 +12,13 @@ import ReSwift
 import Contacts
 import ContactsUI
 
+enum CustomerViewControllerState {
+    case create, edit
+}
+
 class NewCustomerViewController: UIViewController {
-    private var customer = Customer()
+    var customer = Customer()
+    var state = CustomerViewControllerState.create
 
     // MARK: IBOutlets
 
@@ -29,6 +34,15 @@ class NewCustomerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        switch state {
+        case .create:
+            let cancelBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(NewCustomerViewController.cancel(_:)))
+            navigationItem.leftBarButtonItem = cancelBarButtonItem
+        case .edit:
+            navigationItem.title = customer.name
+            updateViews(with: customer)
+        }
 
         navigationController?.navigationBar.barStyle = .black
     }
@@ -46,8 +60,23 @@ class NewCustomerViewController: UIViewController {
     }
 
     deinit {
-        mainStore.dispatch(ResetAddCustomer())
+        switch state {
+        case .create:
+            mainStore.dispatch(ResetAddCustomer())
+        case .edit:
+            mainStore.dispatch(ResetUpdateCustomer())
+        }
     }
+
+    func exit() {
+        switch state {
+        case .create:
+            dismiss(animated: true)
+        case .edit:
+            let _ = navigationController?.popViewController(animated: true)
+        }
+    }
+
     
     // MARK: IBActions
 
@@ -67,7 +96,12 @@ class NewCustomerViewController: UIViewController {
             customer.image = UIImagePNGRepresentation(image)
         }
 
-        mainStore.dispatch(addCustomerAction(newCustomer: customer))
+        switch state {
+        case .create:
+            mainStore.dispatch(addCustomerAction(newCustomer: customer))
+        case .edit:
+            mainStore.dispatch(updateCustomerAction(customer: customer))
+        }
     }
 
     @IBAction func importContact(_ sender: UIButton) {
@@ -99,13 +133,26 @@ class NewCustomerViewController: UIViewController {
             }
         }.resume()
     }
+
+    private func updateViews(with customer: Customer) {
+        nameTextField.text = customer.name
+        addressTextField.text = customer.address
+        countryTextField.text = customer.country
+        cvrTextFIeld.text = customer.regNo
+        emailTextField.text = customer.email
+        phoneTextField.text = customer.phone
+
+        if let imageDate = customer.image {
+            logoImageView.image = UIImage(data: imageDate)
+        }
+    }
 }
 
 extension NewCustomerViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = CustomerState
 
     func newState(state: StoreSubscriberStateType) {
-        guard let newCustomer = state.addingCustomer else {
+        guard let newCustomer = (self.state == .create ? state.addingCustomer : state.updatingCustomer) else {
             return
         }
 
@@ -113,7 +160,7 @@ extension NewCustomerViewController: StoreSubscriber {
         case .loading:
             title = "Saving customer"
         case .done(_):
-            dismiss(animated: true)
+            exit()
         default:
             break
         }

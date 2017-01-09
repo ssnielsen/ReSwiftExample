@@ -34,6 +34,7 @@ struct AddCustomer: Action {
 }
 
 struct ResetAddCustomer: Action { }
+struct ResetUpdateCustomer: Action { }
 
 struct DeleteCustomer: Action {
     var customerToDelete: FetchState<Customer>

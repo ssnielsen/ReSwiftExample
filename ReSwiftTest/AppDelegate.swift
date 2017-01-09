@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = .white
 
 
         if isUiTesting {

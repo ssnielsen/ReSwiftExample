@@ -31,8 +31,8 @@ extension AppReducer {
                 return newState
             }
 
+            newState.updatingCustomer = action.customerToUpdate
             let withUpdated = customers.filter { $0.id != updatedCustomer.id } + [updatedCustomer]
-            newState.updatingCustomer = nil
             newState.customers = .done(data: withUpdated)
 
         case let action as DeleteCustomer:
@@ -47,6 +47,9 @@ extension AppReducer {
 
         case _ as ResetAddCustomer:
             newState.addingCustomer = nil
+
+        case _ as ResetUpdateCustomer:
+            newState.updatingCustomer = nil
 
         case let action as ChangeCustomerSorting:
             newState.sorting = action.sorting
