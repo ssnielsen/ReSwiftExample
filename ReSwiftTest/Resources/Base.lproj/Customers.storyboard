@@ -24,28 +24,28 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CZd-Ys-9E9" id="wPf-pW-aTl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="S5E-hG-aUK">
-                                            <rect key="frame" x="67" y="8" width="300" height="55"/>
+                                            <rect key="frame" x="67" y="8" width="270.5" height="55"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMy-ei-L5T">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="270.5" height="19"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="customerCellNameLabel"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhz-yj-MDw">
-                                                    <rect key="frame" x="0.0" y="19" width="300" height="18"/>
+                                                    <rect key="frame" x="0.0" y="19" width="270.5" height="18"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="customerCellPhoneLabel"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b52-Qo-f7e">
-                                                    <rect key="frame" x="0.0" y="37" width="300" height="18"/>
+                                                    <rect key="frame" x="0.0" y="37" width="270.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -69,14 +69,22 @@
                                                 <constraint firstItem="9sm-ZL-xoU" firstAttribute="centerX" secondItem="75u-h5-J8A" secondAttribute="centerX" id="Zr5-7U-K53"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="★" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-9a-HtL">
+                                            <rect key="frame" x="345.5" y="20.5" width="21.5" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" red="0.94786227226257325" green="0.86070526172803985" blue="0.36597916513609768" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="S5E-hG-aUK" firstAttribute="bottom" secondItem="75u-h5-J8A" secondAttribute="bottom" constant="2" id="6KO-W7-N6l"/>
                                         <constraint firstAttribute="topMargin" secondItem="75u-h5-J8A" secondAttribute="top" constant="-2" id="9js-v3-J4t"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="75u-h5-J8A" secondAttribute="leading" id="Gnw-Wo-1c1"/>
+                                        <constraint firstItem="aj2-9a-HtL" firstAttribute="leading" secondItem="S5E-hG-aUK" secondAttribute="trailing" constant="8" id="IvW-3K-jDC"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="75u-h5-J8A" secondAttribute="bottom" constant="2" id="Jzc-hi-bJp"/>
                                         <constraint firstItem="S5E-hG-aUK" firstAttribute="top" secondItem="75u-h5-J8A" secondAttribute="top" constant="-2" id="LIr-q7-h2C"/>
-                                        <constraint firstAttribute="trailing" secondItem="S5E-hG-aUK" secondAttribute="trailing" constant="8" id="e8u-bg-68c"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aj2-9a-HtL" secondAttribute="trailing" id="PBS-SV-cCh"/>
+                                        <constraint firstItem="aj2-9a-HtL" firstAttribute="centerY" secondItem="wPf-pW-aTl" secondAttribute="centerY" id="PYz-RT-CwF"/>
                                         <constraint firstItem="S5E-hG-aUK" firstAttribute="leading" secondItem="75u-h5-J8A" secondAttribute="trailing" constant="8" id="noc-rX-KVs"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -86,6 +94,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="b52-Qo-f7e" id="8ej-gc-NyY"/>
                                     <outlet property="circleView" destination="75u-h5-J8A" id="EDy-YE-2H5"/>
+                                    <outlet property="favouriteLabel" destination="aj2-9a-HtL" id="Ky5-kk-FLp"/>
                                     <outlet property="initialsLabel" destination="9sm-ZL-xoU" id="VpF-NT-95C"/>
                                     <outlet property="nameLabel" destination="nMy-ei-L5T" id="tiI-NM-Un9"/>
                                     <outlet property="phoneLabel" destination="nhz-yj-MDw" id="vbm-z0-Kf9"/>
@@ -132,7 +141,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="1dE-yB-UPo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1dE-yB-UPo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549019607843" green="0.12941176470588234" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
@@ -283,7 +292,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewCustomerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3u0-pF-HRj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dTp-6e-PEx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dTp-6e-PEx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549019607843" green="0.12941176470588234" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>

@@ -81,8 +81,6 @@ class ReSwiftTestUITests: XCTestCase {
         let app = XCUIApplication()
 
         // Act
-        XCUIDevice.shared().orientation = .portrait
-
         app.tables.searchFields["Search"].tap()
         app.searchFields["Search"].typeText("Anders Høst")
 
@@ -109,6 +107,42 @@ class ReSwiftTestUITests: XCTestCase {
 
         // Assert
         XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellPhoneLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <))
+    }
+
+    func test_unfavouriteCustomerWillRemoveStar() {
+        // Arrange
+        let app = XCUIApplication()
+        let favouritedCells = { return app.tables.cells.allElementsBoundByIndex.filter { $0.label.contains("★") } }
+        let favouritedBefore = favouritedCells()
+        let favouritedCustomerCell = favouritedBefore.first!
+
+        // Act
+        favouritedCustomerCell.swipeLeft()
+        favouritedCustomerCell.buttons["Unfavourite"].tap()
+
+        // Assert
+        let favouritedAfter = favouritedCells()
+        XCTAssertEqual(favouritedAfter.count, favouritedBefore.count - 1)
+        XCTAssertFalse(favouritedCustomerCell.staticTexts["★"].exists)
+    }
+
+    func test_favouriteCustomerWillAddStar() {
+        // Arrange
+        let app = XCUIApplication()
+        let favouritedCells = { return app.tables.cells.allElementsBoundByIndex.filter { $0.label.contains("★") } }
+        let unfavouritedCells = { return app.tables.cells.allElementsBoundByIndex.filter { !$0.label.contains("★") } }
+        let favouritedBefore = favouritedCells()
+        let unfavouritedBefore = unfavouritedCells()
+        let unfavouritedCustomerCell = unfavouritedBefore.first!
+
+        // Act
+        unfavouritedCustomerCell.swipeLeft()
+        unfavouritedCustomerCell.buttons["Favourite"].tap()
+
+        // Assert
+        let favouritedAfter = favouritedCells()
+        XCTAssertEqual(favouritedAfter.count, favouritedBefore.count + 1)
+        XCTAssertTrue(unfavouritedCustomerCell.staticTexts["★"].exists)
     }
 
     private func waitFor(element: XCUIElement, timeout: TimeInterval = 5, file: String = #file, line: UInt = #line) {

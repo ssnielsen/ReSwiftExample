@@ -101,6 +101,7 @@ extension CustomersTableViewController {
         cell.phoneLabel.text = customer.phone
         cell.addressLabel.text = customer.address
         cell.initialsLabel.text = customer.initials?.uppercased()
+        cell.favouriteLabel.isHidden = !customer.favourited
 
         if searchController.isActive {
             cell.nameLabel.highlight(searchController.searchBar.text)
@@ -133,7 +134,7 @@ extension CustomersTableViewController {
         }
 
         var customer = customers[indexPath.row]
-        let favouriteText = customer.favourited ? "Unfavourite" : "Favorurite"
+        let favouriteText = customer.favourited ? "Unfavourite" : "Favourite"
         let favouriteAction = UITableViewRowAction(style: .normal, title: favouriteText) { action, indexPath in
             customer.favourited = !customer.favourited
             mainStore.dispatch(updateCustomerAction(customer: customer))
