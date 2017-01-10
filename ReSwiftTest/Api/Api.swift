@@ -86,6 +86,7 @@ func updateCustomerAction(customer: Customer) -> Store<AppState>.ActionCreator {
         state.api.updateCustomer(customer: customer) { response in
             DispatchQueue.main.async {
                 mainStore.dispatch(UpdateCustomer(customerToUpdate: FetchState(response: response)))
+                mainStore.dispatch(ResetUpdateCustomer())
             }
         }
 

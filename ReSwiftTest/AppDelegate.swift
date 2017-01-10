@@ -48,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().tintColor = .white
-
+        UINavigationBar.appearance().barTintColor = R.color.app.main()
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
 
         if isUiTesting {
             UIApplication.shared.keyWindow?.layer.speed = 100
