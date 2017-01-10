@@ -41,6 +41,14 @@ class CustomersTableViewController: UITableViewController {
         mainStore.unsubscribe(self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let typedSegue = R.segue.customersTableViewController.editCustomer(segue: segue),
+            let indexPath = tableView.indexPathForSelectedRow {
+            typedSegue.destination.state = .edit
+            typedSegue.destination.customer = customers[indexPath.row]
+        }
+    }
+
 
     // MARK: Private functions
 

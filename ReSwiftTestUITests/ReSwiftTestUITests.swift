@@ -145,6 +145,41 @@ class ReSwiftTestUITests: XCTestCase {
         XCTAssertTrue(unfavouritedCustomerCell.staticTexts["★"].exists)
     }
 
+    func test_editCustomer() {
+        // Arrange
+        let app = XCUIApplication()
+        let name = "Alexander Saberdine"
+        let lastName = "Petersson"
+        let newAddress = "Lövvänget 42"
+        let newPhoneNumber = "11 22 33 44"
+
+        // Act
+        app.tables.staticTexts[name].tap()
+
+        let nameTextField = app.textFields["Name"]
+        nameTextField.tap()
+        nameTextField.typeText(" \(lastName)")
+
+        let addressTextField = app.textFields["Address"]
+        addressTextField.doubleTap()
+        app.menuItems["Select All"].tap()
+        app.keys["delete"].tap()
+        addressTextField.typeText(newAddress)
+
+        let phoneTextField = app.textFields["Phone"]
+        phoneTextField.doubleTap()
+        app.menuItems["Select All"].tap()
+        app.keys["delete"].tap()
+        phoneTextField.typeText(newPhoneNumber)
+
+        app.navigationBars[name].buttons["Save"].tap()
+
+        // Assert
+        XCTAssertTrue(app.tables.staticTexts["\(name) \(lastName)"].exists)
+        XCTAssertTrue(app.tables.staticTexts[newAddress].exists)
+        XCTAssertTrue(app.tables.staticTexts[newPhoneNumber].exists)
+    }
+
     private func waitFor(element: XCUIElement, timeout: TimeInterval = 5, file: String = #file, line: UInt = #line) {
         let existsPredicate = NSPredicate(format: "exists == true")
 
