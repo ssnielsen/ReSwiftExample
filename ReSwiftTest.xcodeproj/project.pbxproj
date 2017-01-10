@@ -339,7 +339,7 @@
 				TargetAttributes = {
 					450EBE4B1E01630E00BC0AD5 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 287LWSG6WD;
+						DevelopmentTeam = X42U65K8AB;
 						ProvisioningStyle = Automatic;
 					};
 					45F81B781E0837AA004A4127 = {
@@ -692,10 +692,10 @@
 			baseConfigurationReference = 25B17C2E78F72217FD83A1F8 /* Pods-ReSwiftTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 287LWSG6WD;
+				DEVELOPMENT_TEAM = X42U65K8AB;
 				INFOPLIST_FILE = ReSwiftTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.ReSwiftTest";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.SorensPrototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -706,10 +706,10 @@
 			baseConfigurationReference = F995A36E84A441F7B9B61E39 /* Pods-ReSwiftTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 287LWSG6WD;
+				DEVELOPMENT_TEAM = X42U65K8AB;
 				INFOPLIST_FILE = ReSwiftTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.ReSwiftTest";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.e-conomic.SorensPrototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
