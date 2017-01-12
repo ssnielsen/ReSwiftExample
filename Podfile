@@ -8,8 +8,12 @@ use_frameworks!
 
 pod 'ReSwift'
 pod 'R.swift'
+pod 'RealmSwift'
 
 target 'ReSwiftTest' do
+end
+
+target 'ReSwiftTestTests' do
 end
 
 target 'ReSwiftTestUITests' do
