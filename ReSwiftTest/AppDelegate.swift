@@ -21,15 +21,16 @@ let loggingMiddleware: Middleware = { dispatch, state in
 let isUiTesting = ProcessInfo.processInfo.arguments.contains("UI-TESTING")
 let useTestApi = ProcessInfo.processInfo.arguments.contains("TEST-API")
 
-let api = useTestApi ? TestApi(delayBy: .milliseconds(0)) : TestApi()
+let mainStore = { () -> Store<AppState> in 
+    let initialState = AppState(
+        api: useTestApi ? TestApi(delayBy: .milliseconds(0)) : TestApi(),
+        database: RealmDatabase())
 
-let state = AppState(api: api)
-
-let mainStore = Store<AppState>(
-    reducer: AppReducer(),
-    state: state,
-    middleware: [loggingMiddleware]
-)
+    return Store<AppState>(
+        reducer: AppReducer(),
+        state: initialState,
+        middleware: [loggingMiddleware])
+}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

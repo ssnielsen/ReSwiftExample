@@ -14,9 +14,9 @@ struct AppReducer: Reducer {
 
     func handleAction(action: Action, state: AppState?) -> AppState {
         return AppState(
-            company: companyReducer(action: action, state: state),
             customerState: customersReducer(action: action, state: state),
-            api: state?.api ?? TestApi()
+            api: state?.api ?? TestApi(),
+            database: state?.database ?? RealmDatabase()
         )
     }
 }

@@ -10,16 +10,13 @@ import Foundation
 import ReSwift
 
 struct AppState: StateType {
-    var company: FetchState<Company>?
     var customerState: CustomerState? = CustomerState()
-
     var api: ApiService
+    var database: DatabaseService
 
-    init(company: FetchState<Company>? = nil,
-         customerState: CustomerState? = nil,
-         api: ApiService) {
-        self.company = company
+    init(customerState: CustomerState? = nil, api: ApiService, database: DatabaseService) {
         self.customerState = customerState
         self.api = api
+        self.database = database
     }
 }
