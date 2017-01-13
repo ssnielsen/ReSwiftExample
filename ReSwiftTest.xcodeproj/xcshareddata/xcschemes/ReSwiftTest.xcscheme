@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45F81B781E0837AA004A4127"
+               BlueprintIdentifier = "45D6AA0F1E27866D00E22914"
                BuildableName = "ReSwiftTestTests.xctest"
                BlueprintName = "ReSwiftTestTests"
                ReferencedContainer = "container:ReSwiftTest.xcodeproj">
@@ -47,6 +47,11 @@
                BlueprintName = "ReSwiftTestUITests"
                ReferencedContainer = "container:ReSwiftTest.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ReSwiftTestUITests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
