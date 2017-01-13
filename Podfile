@@ -8,7 +8,7 @@ use_frameworks!
 
 pod 'ReSwift'
 pod 'R.swift'
-pod 'RealmSwift'
+pod 'RealmSwift', '2.0.0'
 
 target 'ReSwiftTest' do
 end
