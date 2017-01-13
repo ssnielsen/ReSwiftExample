@@ -7,17 +7,40 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Customer {
-    var id: String?
-    var name: String?
-    var address: String?
-    var country: String?
-    var regNo: String?
-    var email: String?
-    var phone: String?
-    var favourited: Bool = false
-    var image: Data?
+class Customer: Object {
+    dynamic var id: String?
+    dynamic var name: String?
+    dynamic var address: String?
+    dynamic var country: String?
+    dynamic var regNo: String?
+    dynamic var email: String?
+    dynamic var phone: String?
+    dynamic var favourited: Bool = false
+    dynamic var image: Data?
+
+    convenience init(id: String? = nil, name: String? = nil, address: String? = nil, country: String? = nil, regNo: String? = nil, email: String? = nil, phone: String? = nil, favourited: Bool = false, image: Data? = nil) {
+        self.init()
+
+        self.id = id
+        self.name = name
+        self.address = address
+        self.country = country
+        self.regNo = regNo
+        self.email = email
+        self.phone = phone
+        self.favourited = favourited
+        self.image = image
+    }
+
+    override static func primaryKey() -> String {
+        return "id"
+    }
+
+    override static func indexedProperties() -> [String] {
+        return ["name"]
+    }
 
     var initials: String? {
         guard let splitted = name?.components(separatedBy: .whitespaces) else {

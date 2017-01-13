@@ -163,13 +163,11 @@ class ReSwiftTestUITests: XCTestCase {
         let addressTextField = app.textFields["Address"]
         addressTextField.doubleTap()
         app.menuItems["Select All"].tap()
-        app.keys["delete"].tap()
         addressTextField.typeText(newAddress)
 
         let phoneTextField = app.textFields["Phone"]
         phoneTextField.doubleTap()
         app.menuItems["Select All"].tap()
-        app.keys["delete"].tap()
         phoneTextField.typeText(newPhoneNumber)
 
         app.navigationBars[name].buttons["Save"].tap()

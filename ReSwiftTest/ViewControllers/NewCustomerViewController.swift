@@ -17,7 +17,15 @@ enum CustomerViewControllerState {
 }
 
 class NewCustomerViewController: UIViewController {
-    var customer = Customer()
+    private var _customer = Customer()
+    var customer: Customer {
+        get {
+            fatalError()
+        }
+        set {
+            _customer = Customer(value: newValue)
+        }
+    }
     var state = CustomerViewControllerState.create
 
     // MARK: IBOutlets
@@ -40,8 +48,8 @@ class NewCustomerViewController: UIViewController {
             let cancelBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(NewCustomerViewController.cancel(_:)))
             navigationItem.leftBarButtonItem = cancelBarButtonItem
         case .edit:
-            navigationItem.title = customer.name
-            updateViews(with: customer)
+            navigationItem.title = _customer.name
+            updateViews(with: _customer)
         }
 
         navigationController?.navigationBar.barStyle = .black
@@ -85,22 +93,22 @@ class NewCustomerViewController: UIViewController {
     }
 
     @IBAction func save(_ sender: UIBarButtonItem) {
-        customer.name = nameTextField.text
-        customer.address = addressTextField.text
-        customer.country = countryTextField.text
-        customer.regNo = cvrTextFIeld.text
-        customer.email = emailTextField.text
-        customer.phone = phoneTextField.text
+        _customer.name = nameTextField.text
+        _customer.address = addressTextField.text
+        _customer.country = countryTextField.text
+        _customer.regNo = cvrTextFIeld.text
+        _customer.email = emailTextField.text
+        _customer.phone = phoneTextField.text
 
         if let image = logoImageView.image {
-            customer.image = UIImagePNGRepresentation(image)
+            _customer.image = UIImagePNGRepresentation(image)
         }
 
         switch state {
         case .create:
-            mainStore.dispatch(addCustomerAction(newCustomer: customer))
+            mainStore.dispatch(addCustomerAction(newCustomer: _customer))
         case .edit:
-            mainStore.dispatch(updateCustomerAction(customer: customer))
+            mainStore.dispatch(updateCustomerAction(customer: _customer))
         }
     }
 
@@ -135,14 +143,14 @@ class NewCustomerViewController: UIViewController {
     }
 
     private func updateViews(with customer: Customer) {
-        nameTextField.text = customer.name
-        addressTextField.text = customer.address
-        countryTextField.text = customer.country
-        cvrTextFIeld.text = customer.regNo
-        emailTextField.text = customer.email
-        phoneTextField.text = customer.phone
+        nameTextField.text = _customer.name
+        addressTextField.text = _customer.address
+        countryTextField.text = _customer.country
+        cvrTextFIeld.text = _customer.regNo
+        emailTextField.text = _customer.email
+        phoneTextField.text = _customer.phone
 
-        if let imageDate = customer.image {
+        if let imageDate = _customer.image {
             logoImageView.image = UIImage(data: imageDate)
         }
     }

@@ -21,23 +21,9 @@ final class TestApi: ApiService {
         Customer(id: "3", name: "Sigfried Schweinsteiger", address: "Budapester Straße 432", country: "Germany", regNo: "3534543", email: "info@schweini.com", phone: "3453423", favourited: true, image: nil),
         Customer(id: "4", name: "Alexander Saberdine", address: "Gammalgatan 23", country: "Sweden", regNo: "52343324", email: "info@kompani.se", phone: "11 99 88 77", favourited: true, image: nil),
         Customer(id: "5", name: "Søren Nielsen", address: "Prags Boulevard 50 1 TV", country: "Denmark", regNo: "64553452", email: "ssn@e-conomic.com", phone: "26 55 19 81", favourited: true, image: nil),
-        Customer(id: "6", name: "Jostein Johansen", address: "Damstredet 97", country: "Norway", regNo: "7453452", email: "admin@it-sørvis.no", phone: "56 78 55 23", favourited: true, image: nil)
+        Customer(id: "6", name: "Jostein Johansen", address: "Damstredet 97", country: "Norway", regNo: "7453452", email: "admin@it-sørvis.no", phone: "56 78 55 23", favourited: true, image: nil),
+        Customer(id: "XXX", name: "XXXXXXXXXX", address: "", country: "", regNo: "", email: "", phone: "", favourited: true, image: nil)
     ]
-
-    func fetchCompany(completion: @escaping (Response<Company>) -> Void) {
-        let company = Company(
-            name: "EC Sporting ApS",
-            address: "Langebrogade 1",
-            zip: "2300",
-            country: "Denmark",
-            bankInformation: BankInformation(),
-            email: "ssn@e-conomic.com",
-            phone: "+45 26551981")
-
-        delay {
-            completion(.success(data: company))
-        }
-    }
 
     func fetchCustomers(completion: @escaping (Response<[Customer]>) -> Void) {
         delay {
@@ -45,8 +31,7 @@ final class TestApi: ApiService {
         }
     }
 
-    func addCustomer( customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
-        var customer = customer
+    func addCustomer(customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
         customer.id = UUID().uuidString
         customers.append(customer)
         delay {
@@ -57,7 +42,7 @@ final class TestApi: ApiService {
     func deleteCustomer(customer: Customer, completion: @escaping (Response<Customer>) -> Void) {
         customers = customers.filter { $0.id != customer.id }
         delay {
-            var deletedCustomer = Customer()
+            let deletedCustomer = Customer()
             deletedCustomer.id = customer.id
             completion(.success(data: deletedCustomer))
         }

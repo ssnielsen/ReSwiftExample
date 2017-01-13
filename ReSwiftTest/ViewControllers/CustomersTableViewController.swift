@@ -141,11 +141,12 @@ extension CustomersTableViewController {
             tableView.endUpdates()
         }
 
-        var customer = customers[indexPath.row]
+        let customer = customers[indexPath.row]
         let favouriteText = customer.favourited ? "Unfavourite" : "Favourite"
         let favouriteAction = UITableViewRowAction(style: .normal, title: favouriteText) { action, indexPath in
-            customer.favourited = !customer.favourited
-            mainStore.dispatch(updateCustomerAction(customer: customer))
+            let umanagedCustomer = Customer(value: customer)
+            umanagedCustomer.favourited = !umanagedCustomer.favourited
+            mainStore.dispatch(updateCustomerAction(customer: umanagedCustomer))
             tableView.isEditing = false
         }
         

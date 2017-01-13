@@ -25,10 +25,6 @@ struct ChangeCustomerSorting: Action {
     var sorting: CustomerSorting
 }
 
-struct SetCompany: Action {
-    var company: FetchState<Company>
-}
-
 struct AddCustomer: Action {
     var customerToAdd: FetchState<Customer>
 }
