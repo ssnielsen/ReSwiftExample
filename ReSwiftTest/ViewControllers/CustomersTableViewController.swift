@@ -58,6 +58,7 @@ class CustomersTableViewController: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.backgroundColor = .white
+        searchController.searchBar.accessibilityLabel = "customerSearchBar"
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         extendedLayoutIncludesOpaqueBars = true
@@ -78,6 +79,7 @@ class CustomersTableViewController: UITableViewController {
         ]
         popoverViewController.popoverPresentationController?.delegate = self
         popoverViewController.popoverPresentationController?.barButtonItem = sender
+        popoverViewController.tableView.accessibilityLabel = "customerSortTableView"
 
         present(popoverViewController, animated: true)
     }
@@ -149,6 +151,7 @@ extension CustomersTableViewController {
             mainStore.dispatch(updateCustomerAction(customer: umanagedCustomer))
             tableView.isEditing = false
         }
+        favouriteAction.accessibilityLabel = "favouriteCustomerRowAction"
         
         return [deleteAction, favouriteAction]
     }

@@ -14,6 +14,8 @@ target 'ReSwiftTest' do
 end
 
 target 'ReSwiftTestTests' do
+    pod 'KIF', '~> 3.0', :configurations => ['Debug']
+    pod 'Fakery'
 end
 
 target 'ReSwiftTestUITests' do

@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CZd-Ys-9E9" id="wPf-pW-aTl">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="S5E-hG-aUK">
@@ -102,6 +102,9 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="customerTableView"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="3iC-9G-LuM" id="hI4-QO-xc7"/>
                             <outlet property="delegate" destination="3iC-9G-LuM" id="kP7-xF-rh7"/>
@@ -110,12 +113,18 @@
                     <navigationItem key="navigationItem" id="mN1-hf-hTA">
                         <barButtonItem key="leftBarButtonItem" tag="999" image="barbutton_sort" id="OqQ-cy-PI2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="sortBarButton"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="changeSorting:" destination="3iC-9G-LuM" id="Hyr-Q3-B78"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YLK-5K-h9Y">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="addCustomerBarButton"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <segue destination="3u0-pF-HRj" kind="show" id="97R-7R-xKo"/>
                             </connections>
@@ -142,7 +151,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="1dE-yB-UPo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1dE-yB-UPo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,36 +182,42 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sri-bL-63A">
                                 <rect key="frame" x="16" y="8" width="343" height="17"/>
+                                <accessibility key="accessibilityConfiguration" label="nameTextField"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-eb-RM1">
                                 <rect key="frame" x="16" y="33" width="343" height="17"/>
+                                <accessibility key="accessibilityConfiguration" label="addressTextField"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ced-b3-BDV">
                                 <rect key="frame" x="16" y="58" width="343" height="17"/>
+                                <accessibility key="accessibilityConfiguration" label="countryTextField"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVR" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KgN-wg-FjC">
                                 <rect key="frame" x="16" y="83" width="343" height="17"/>
+                                <accessibility key="accessibilityConfiguration" label="cvrTextField"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXX-LD-e8u">
                                 <rect key="frame" x="16" y="108" width="343" height="17"/>
+                                <accessibility key="accessibilityConfiguration" label="emailTextField"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1j3-SI-B0l">
                                 <rect key="frame" x="16" y="133" width="343" height="17"/>
+                                <accessibility key="accessibilityConfiguration" label="phoneTextField"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -264,6 +279,9 @@
                     <navigationItem key="navigationItem" title="New Customer" id="omF-de-rXh">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ehq-ZA-Cvv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="saveBarButton"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="save:" destination="aU9-bl-sEb" id="uqK-42-G6c"/>
                             </connections>
@@ -288,7 +306,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewCustomerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3u0-pF-HRj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dTp-6e-PEx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dTp-6e-PEx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

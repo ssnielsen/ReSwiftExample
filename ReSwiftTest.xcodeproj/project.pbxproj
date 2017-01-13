@@ -31,6 +31,8 @@
 		45D8675B1E0C05090033C2E3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675A1E0C05090033C2E3 /* R.generated.swift */; };
 		45D8675D1E0C0AEB0033C2E3 /* NewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */; };
 		45D953371E28EBBE006C2360 /* ReSwiftTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */; };
+		45D9533A1E28EDC5006C2360 /* KIFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D953381E28EDA9006C2360 /* KIFTests.swift */; };
+		45D9533C1E2912D1006C2360 /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9533B1E2912D1006C2360 /* RealmDatabase.swift */; };
 		45F81B8A1E098A24004A4127 /* ReSwiftTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F81B891E098A24004A4127 /* ReSwiftTestUITests.swift */; };
 		9C070595D55BB6DF7FCF1727 /* Pods_ReSwiftTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CC9CD46BEEEA73F73C6FF4 /* Pods_ReSwiftTestUITests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,8 @@
 		45D6AA1D1E27B74900E22914 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		45D8675A1E0C05090033C2E3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		45D8675C1E0C0AEB0033C2E3 /* NewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCustomerViewController.swift; sourceTree = "<group>"; };
+		45D953381E28EDA9006C2360 /* KIFTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KIFTests.swift; path = ../ReSwiftTestUITests/KIFTests.swift; sourceTree = "<group>"; };
+		45D9533B1E2912D1006C2360 /* RealmDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
 		45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwiftTestTests.swift; sourceTree = "<group>"; };
 		45F81B7D1E0837AA004A4127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F81B871E098A24004A4127 /* ReSwiftTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReSwiftTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				45D6AA1D1E27B74900E22914 /* Database.swift */,
+				45D9533B1E2912D1006C2360 /* RealmDatabase.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			children = (
 				45F81B7D1E0837AA004A4127 /* Info.plist */,
 				45F81B7B1E0837AA004A4127 /* ReSwiftTestTests.swift */,
+				45D953381E28EDA9006C2360 /* KIFTests.swift */,
 			);
 			path = ReSwiftTestTests;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				450EBE641E01653F00BC0AD5 /* AppState.swift in Sources */,
 				450EBE6C1E016FF800BC0AD5 /* Api.swift in Sources */,
 				45D6AA1E1E27B74900E22914 /* Database.swift in Sources */,
+				45D9533C1E2912D1006C2360 /* RealmDatabase.swift in Sources */,
 				450EBE6A1E016CE700BC0AD5 /* AppReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D9533A1E28EDC5006C2360 /* KIFTests.swift in Sources */,
 				45D953371E28EBBE006C2360 /* ReSwiftTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
