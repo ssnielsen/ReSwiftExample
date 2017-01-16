@@ -99,14 +99,14 @@ class ReSwiftTestUITests: XCTestCase {
         app.tables.staticTexts["Name"].tap()
 
         // Assert
-        XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellNameLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <))
+        XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellNameLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <=))
 
         // Act
         app.navigationBars["Customers"].children(matching: .button).element(boundBy: 0).tap()
         app.tables.staticTexts["Phone"].tap()
 
         // Assert
-        XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellPhoneLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <))
+        XCTAssertTrue(app.tables.cells.staticTexts.matching(identifier: "customerCellPhoneLabel").allElementsBoundByIndex.map { $0.label }.isSorted(by: <=))
     }
 
     func test_unfavouriteCustomerWillRemoveStar() {
